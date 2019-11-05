@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/graph.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/.Graph.vpp.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_000f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_001d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_002d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_003d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_004d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_005d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_006d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_007d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_008d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/Doc/ClassDiagramCollectionsDraft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/Doc/The ADT Grahp.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyListGraph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyListGraphTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyMatrixGraph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyMatrixGraphTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/GraphAlgorithms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/GraphAlgorithmsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/IGraph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/ICollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/ICollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/AdjacencyListGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/AdjacencyMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/IGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/AdjacencyListGraphTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/AdjacencyMatrixGraphTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/GraphAlgorithmsTest.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="107" column="59" lean-forward="true" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/graphs" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/model/Dijkstra.java" />
+        <option value="$PROJECT_DIR$/src/model/Algorithms.java" />
+        <option value="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="34" />
+    <option name="width" value="1600" />
+    <option name="height" value="866" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
+              <item name="graph" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572984526343" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="" />
+      <created>1572974981054</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572974981054</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="34" width="1600" height="866" extended-state="6" />
+    <layout>
+      <window_info id="Learn" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="simpleUML" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24967825" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32882273" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="1602" column="28" lean-forward="true" selection-start-line="1602" selection-start-column="28" selection-end-line="1602" selection-end-column="28" />
+          <folding>
+            <element signature="e#52232#52233#0" expanded="true" />
+            <element signature="e#52271#52272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StrictMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="1259" column="33" lean-forward="true" selection-start-line="1259" selection-start-column="33" selection-end-line="1259" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Algorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="107" column="59" lean-forward="true" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
+  </component>
+</project>
