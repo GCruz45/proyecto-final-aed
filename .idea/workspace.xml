@@ -2,57 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/graph.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/.Graph.vpp.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_000f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_001d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_002d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_003d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_004d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_005d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_006d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_007d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/ClassDiagram/Graph.vpp.bak_008d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/Doc/ClassDiagramCollectionsDraft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/Doc/The ADT Grahp.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyListGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyListGraphTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyMatrixGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/AdjacencyMatrixGraphTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/GraphAlgorithms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/GraphAlgorithmsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/bin/graph/IGraph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/ICollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/ICollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/Queue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/collections/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/collections/Stack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/AdjacencyListGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/AdjacencyMatrixGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/src/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/IGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/AdjacencyListGraphTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/AdjacencyMatrixGraphTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/test/graph/GraphAlgorithmsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,11 +23,53 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graphs/graph/IGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graphs/graph/AdjacencyMatrixGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="283" column="19" selection-start-line="283" selection-start-column="19" selection-end-line="283" selection-end-column="19" />
+              <folding>
+                <element signature="e#4118#4157#0" expanded="true" />
+                <element signature="e#11849#11850#0" expanded="true" />
+                <element signature="e#12053#12054#0" expanded="true" />
+                <element signature="e#12280#12281#0" expanded="true" />
+                <element signature="e#12595#12596#0" expanded="true" />
+                <element signature="e#12840#12841#0" expanded="true" />
+                <element signature="e#13642#13643#0" expanded="true" />
+                <element signature="e#13669#13670#0" expanded="true" />
+                <element signature="e#13702#13703#0" expanded="true" />
+                <element signature="e#13740#13741#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="107" column="59" lean-forward="true" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+            <state relative-caret-position="162">
+              <caret line="89" column="35" lean-forward="true" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graphs/collections/Queue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -90,13 +84,15 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/graphs" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/model/Dijkstra.java" />
         <option value="$PROJECT_DIR$/src/model/Algorithms.java" />
+        <option value="$PROJECT_DIR$/src/graphs/collections/Queue.java" />
+        <option value="$PROJECT_DIR$/src/graphs/graph/AdjacencyMatrixGraph.java" />
         <option value="$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java" />
       </list>
     </option>
@@ -135,6 +131,13 @@
               <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="graphs" type="462c0819:PsiDirectoryNode" />
+              <item name="collections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphs" type="462c0819:PsiDirectoryNode" />
               <item name="graph" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -152,9 +155,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572984526343" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573076404126" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -183,36 +186,43 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Learn" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="simpleUML" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24967825" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32882273" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="simpleUML" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.17052767" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info id="Learn" order="8" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32882273" />
+      <window_info anchor="bottom" id="Messages" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32882273" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32882273" />
+      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/graphs" />
+    </ignored-roots>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
@@ -250,10 +260,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/graph/IGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/collections/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/graph/AdjacencyMatrixGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="283" column="19" selection-start-line="283" selection-start-column="19" selection-end-line="283" selection-end-column="19" />
+          <folding>
+            <element signature="e#4118#4157#0" expanded="true" />
+            <element signature="e#11849#11850#0" expanded="true" />
+            <element signature="e#12053#12054#0" expanded="true" />
+            <element signature="e#12280#12281#0" expanded="true" />
+            <element signature="e#12595#12596#0" expanded="true" />
+            <element signature="e#12840#12841#0" expanded="true" />
+            <element signature="e#13642#13643#0" expanded="true" />
+            <element signature="e#13669#13670#0" expanded="true" />
+            <element signature="e#13702#13703#0" expanded="true" />
+            <element signature="e#13740#13741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphs/graph/GraphAlgorithms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="107" column="59" lean-forward="true" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+        <state relative-caret-position="162">
+          <caret line="89" column="35" lean-forward="true" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
