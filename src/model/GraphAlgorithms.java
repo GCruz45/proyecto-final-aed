@@ -19,7 +19,7 @@ public class GraphAlgorithms {
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   Graph which is going to be traversed
-     * @param v   Vertex where it's going to start the BFS
+     * @param v   Edge where it's going to start the BFS
      * @return A list with a resultant order due to a BFS
      */
     public static <V> List<V> bfs(IGraph<V> g, V v) {
@@ -31,7 +31,7 @@ public class GraphAlgorithms {
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   Graph which is going to be traversed
-     * @param v   Vertex where it's going to start the DFS
+     * @param v   Edge where it's going to start the DFS
      * @return A list with a resultant order due to a DFS
      */
     public static <V> List<V> dfs(IGraph<V> g, V v) {
@@ -46,7 +46,7 @@ public class GraphAlgorithms {
      * @param v   The vertex from which the traversal will begin.
      * @param ds  The data structure to be used in this traversal. Either a Stack for a DFS or a CQueue for BFS.<br>
      *            <pre> ds Must be empty.
-     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @return A List with the resulting traversal performed on the given graph from the given vertex.
+     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @return A List with the resulting traversal performed on the given graph from the given vertex.
      */
     private static <V> List<V> traversal(IGraph<V> g, V v, ICollection<V> ds) {
         List<V> trav = new ArrayList<>();
@@ -103,11 +103,12 @@ public class GraphAlgorithms {
         });
         for (int i = 0; i < w.length; i++)
             q.add(new Double[]{(double) i, w[indexOfS][i]});
+
         while (!q.isEmpty()) {
             Double[] u = q.poll();//extract-Min
             int indexOfU = u[0].intValue();
             for (int v = 0; v < w.length; v++) {
-                if (w[indexOfU][v] < Double.MAX_VALUE) {//u shares and edge with i
+                if (w[indexOfU][v] < Double.MAX_VALUE) {//index shares and edge with i
                     relax(shortestPath, q, u, v, w);
                     q.add(new Double[]{(double) v, shortestPath[v][0]});
                 }
@@ -141,12 +142,12 @@ public class GraphAlgorithms {
      * @param indexOfV
      * @param w
      */
-    private static void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and u exist in the graph.
+    private static void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and index exist in the graph.
         int indexOfU = u[0].intValue();
         double suDistance = shortestPath[indexOfU][0];
         double uvDistance = w[indexOfU][indexOfV];
         double svDistance = shortestPath[indexOfV][0];
-        if (suDistance + uvDistance < svDistance) {//Distance from s to u + distance from u to v < distance from s to v.
+        if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
             shortestPath[indexOfV][0] = suDistance + uvDistance;
             shortestPath[indexOfV][1] = indexOfU;
         }
@@ -157,7 +158,7 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> double[][] floydWarshall(IGraph<V> g) {//TODO: Se cambio el parametro. Revisar consecuencias.
+    public static <V> double[][] floydWarshall(IGraph<V> g) {//TODO: Se cambio el parametro; revisar consecuencias.
         double[][] d = g.weightMatrix();
         int n = d.length;
         for (int k = 1; k <= n; k++) {
@@ -179,7 +180,7 @@ public class GraphAlgorithms {
      * @return
      */
     public static <V> int[] prim(IGraph<V> g, V s) {
-        //TODO: Assert if is undirected. Check comments.
+        //TODO: Assert if is undirected. Update comments.
         double[][] w = g.weightMatrix();
         int vertices = w.length;
         double[] key = new double[vertices];//Stores the smallest edge to a given vertex.
@@ -187,7 +188,8 @@ public class GraphAlgorithms {
         Boolean[] marked = new Boolean[vertices];
         int logicalSize = g.getVertexSize();
         int indexOfS = g.getIndex(s);
-        Queue<Double[]> indexKeyPair = new PriorityQueue<>(logicalSize, new Comparator<>() {
+
+        Queue<Double[]> indexKeyPair = new PriorityQueue<>(logicalSize, new Comparator<>() {//TODO:
             @Override
             public int compare(Double[] pair1, Double[] pair2) {
                 Double key1 = pair1[0];
@@ -195,8 +197,8 @@ public class GraphAlgorithms {
                 return key1.compareTo(key2);
             }
         });
-        for (int index : g.getIndices().values()
-        ) {
+
+        for (int index : g.getVertices().values()) {
             key[index] = Double.MAX_VALUE;
             parent[index] = Integer.MAX_VALUE;//Since parent.length >= logical size, we need a way to identify missing vertices.
             marked[index] = false;
@@ -204,6 +206,7 @@ public class GraphAlgorithms {
         indexKeyPair.add(new Double[]{(double) indexOfS, 0.0});
         key[indexOfS] = 0.0;
         parent[indexOfS] = -1;
+
         while (!indexKeyPair.isEmpty()) {
             Double[] u = indexKeyPair.poll();
             int indexOfU = u[1].intValue();
@@ -230,40 +233,22 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> int[] kruskal(IGraph<V> g) {//TODO: Se cambio el return type. Revisar consecuencias. Assert si es no dirigido.
-        double[][] w = g.weightMatrix();
-        Set<LinkedList<V>> vertexSet = new LinkedHashSet<>(g.getVertexSize());
+    public static <V> Set<Edge> kruskal(IGraph<V> g) {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+        Set<Edge> vertexSet = new LinkedHashSet<>(g.getVertexSize());
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
-        NavigableSet<Double[]> orderedEdges = new TreeSet<>(new Comparator<>() {
-            @Override
-            public int compare(Double[] pair1, Double[] pair2) {
-                Double key1 = pair1[2];
-                Double key2 = pair2[2];
-                return key1.compareTo(key2);
-            }
-        });
-        for (int index : g.getIndices().values()) {
+        NavigableSet<Edge> orderedEdges = new TreeSet<>(g.getEdges());
+
+        for (int index : g.getVertices().values())
             forest.put(index, makeSet(index));
-        }
-        for (int i = 0; i < w.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (w[i][j] != Double.MAX_VALUE)
-                    orderedEdges.add(new Double[]{(double) i, (double) j, w[i][j]});
-            }
-        }
-        Double[] lightestEdge;
+
+        Edge lightestEdge;
         while (!orderedEdges.isEmpty()) {
             lightestEdge = orderedEdges.pollFirst();
             assert lightestEdge != null;//TODO: Necessary?
-            int indexOfU = lightestEdge.u, indexOfV = lightestEdge.v;
             subset subsetOfU = forest.get(lightestEdge.u);
             subset subsetOfV = forest.get(lightestEdge.v);
             if (findSet(subsetOfU) != findSet(subsetOfV)) {
-                LinkedList<V> definitePair = new LinkedList<>();
-                V u = g.getVertex(indexOfU), v = g.getVertex(indexOfV);
-                definitePair.add(u);
-                definitePair.add(v);
-                vertexSet.add(definitePair);
+                vertexSet.add(lightestEdge);
                 union(subsetOfU, subsetOfV);
             }
         }
@@ -280,7 +265,7 @@ public class GraphAlgorithms {
         subset toAdd = new subset();
         toAdd.parent = toAdd;
         toAdd.index = index;
-        toAdd.rank = 0;//TODO: implement rank auto-balance features.
+        toAdd.rank = 0;
         return toAdd;
     }
 
@@ -292,11 +277,10 @@ public class GraphAlgorithms {
      */
     private static int findSet(subset s) {
         int index = -1;
-        if (s != s.parent) {
+        if (s != s.parent)
             findSet(s.parent);
-        } else {
+        else
             index = s.index;
-        }
         return index;
     }
 

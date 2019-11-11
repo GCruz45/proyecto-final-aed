@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -97,15 +98,7 @@ public interface IGraph<V> {
      */
     int getVertexSize();
 
-    /**
-     * TODO
-     * @return
-     */
-    Map<Integer, V> getVertices();
+    Map<V, Integer> getVertices();
 
-    /**
-     * TODO
-     * @return
-     */
-    Map<V, Integer> getIndices();
+    ArrayList<Edge> getEdges();
 }
