@@ -16,12 +16,12 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
 
     /**
      * Map with all the vertices within the graph.
-     * Key of the map is the Vertex and Value is the position of the vertex in the adjacencyList
+     * Key of the map is the Edge and Value is the position of the vertex in the adjacencyList
      */
     private Map<V, Integer> vertices;
 
     /**
-     * A list for each Vertex within the graph which has a list with all its adjacent Vertices
+     * A list for each Edge within the graph which has a list with all its adjacent Vertices
      */
     private List<List<V>> adjacencyLists;
 
@@ -81,7 +81,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     /**
      * checks if a vertex is within the graph
      *
-     * @param v Vertex to be searched
+     * @param v Edge to be searched
      * @return True if found or false if not
      */
     private boolean searchVertex(V v) {
@@ -159,7 +159,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
 
         if (isDirected) {
             return adjacencyLists.get(uValor).contains(v);
-            // this returns if u connected and directed to v
+            // this returns if index connected and directed to v
         } else {
             return adjacencyLists.get(uValor).contains(v) && adjacencyLists.get(vValor).contains(u);
             // in case the graph is not connected then both should be connected to each other
@@ -177,15 +177,6 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     public boolean isDirected() {
         // TODO Auto-generated method stub
         return isDirected;
-    }
-
-
-    /**
-     * @return all the vertices within the graph as a map data structure
-     */
-    @Override
-    public Map<V, Integer> getIndices() {
-        return vertices;
     }
 
 //    /**
@@ -221,7 +212,16 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public Map<Integer, V> getVertices() {
+    public Map<V, Integer> getVertices() {
+        return vertices;
+    }
+
+    /**
+     * TODO
+     * @return
+     */
+    @Override
+    public ArrayList<Edge> getEdges() {
         return null;
     }
 }

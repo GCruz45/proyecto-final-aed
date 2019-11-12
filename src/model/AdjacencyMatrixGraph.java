@@ -49,33 +49,27 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     /**
      * A Map that accesses any vertex in the graph through its index in the matrix.
      */
-    private Map<Integer, V> verticesMap;
+    private Map<Integer, Vertex> vertices;
 
     /**
-     * A Map that uses any vertex as a key to access its corresponding index in the matrix.
+     * TODO
      */
-    private Map<V, Integer> verticesIndicesMap;
+    private Map<V, Integer> verticesIndices;
+
+    /**
+     * TODO
+     */
+    private ArrayList<Edge> edges;
 
     /**
      * A Set that contains ordered, non-duplicate Integers of empty row/columns in the matrix whose values are lesser
      * than the logical size.
      */
-    private NavigableSet<Integer> emptySlots = new TreeSet<>();//TODO: relocate initialization
-
-    /**
-     * TODO
-     */
-    private NavigableSet<Integer> usedIndices = new TreeSet<>();
-
-    /**
-     * Only for non-directed graphs.
-     * TODO
-     */
-    private ArrayList<Vertex> connections = new ArrayList<>();
+    private NavigableSet<Integer> emptySlots;//TODO: relocate initialization
 
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
-     * verticesMap to their indices in the matrix and indices in the matrix to their verticesMap.
+     * vertices to their indices in the matrix and indices in the matrix to their vertices.
      */
     public AdjacencyMatrixGraph() {
         initialize(DEFAULT_CAPACITY);
@@ -83,7 +77,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
 
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
-     * verticesMap to their indices in the matrix and indices in the matrix to their verticesMap. The graph represented by the
+     * vertices to their indices in the matrix and indices in the matrix to their vertices. The graph represented by the
      * matrix is directed if id is true.
      *
      * @param id true if the graph is directed.
@@ -97,7 +91,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
 
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
-     * verticesMap to their indices in the matrix and indices in the matrix to their verticesMap.
+     * vertices to their indices in the matrix and indices in the matrix to their vertices.
      *
      * @param capacity the initial size of the adjacency matrix
      */
@@ -107,7 +101,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
 
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
-     * verticesMap to their indices in the matrix and indices in the matrix to their verticesMap. The graph represented by the
+     * vertices to their indices in the matrix and indices in the matrix to their vertices. The graph represented by the
      * matrix is directed if id is true.
      *
      * @param id       true if the graph is directed.
@@ -130,8 +124,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         isWeighted = false;
         size = 0;
         adjacencyMatrix = new double[capacity][capacity];
-        verticesMap = new HashMap<>();
-        verticesIndicesMap = new HashMap<>();
+        vertices = new HashMap<>();
+        emptySlots = new TreeSet<>();
+        edges = new ArrayList<>();
     }
 
     /**
@@ -140,12 +135,12 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      * @param v The new vertex to be added
      * @return true if the vertex did not already exist in the graph
      */
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings("ConstantConditions, unchecked")
     @Override
     public boolean addVertex(V v) {
         boolean added = false;
         int index;
-        if (verticesIndicesMap.get(v) != null) {
+        if (verticesIndices.get(v) != null) {
             if (emptySlots.isEmpty()) {//No reusable rows/columns in the matrix
                 if (size == adjacencyMatrix.length) {//Needs to initialize a bigger array
                     double[][] placeHolder = adjacencyMatrix;
@@ -165,9 +160,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                 index = size - 1;
             } else
                 index = emptySlots.pollFirst();//TODO: May assign null?
-            verticesMap.put(index, v);
-            verticesIndicesMap.put(v, index);
-            usedIndices.add(index);
+            vertices.put(index, new Vertex(index, v));
+            verticesIndices.put(v, index);
             for (int i = 0; i < 2; i++) {//Sets the weight of all edges from the new vertex to infinity.
                 for (int j = 0; j < size; j++) {
                     switch (i) {
@@ -187,8 +181,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Adds a directed edge from vertex 'u' to vertex 'v' if the graph is directed. Otherwise, adds an edge between
-     * verticesMap 'u' and 'v'.
+     * Adds a directed edge from vertex 'index' to vertex 'v' if the graph is directed. Otherwise, adds an edge between
+     * vertices 'index' and 'v'.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
@@ -196,37 +190,37 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @Override
     public boolean addEdge(V u, V v) {
         boolean added = false;
-        Integer x = verticesIndicesMap.get(u);
-        Integer y = verticesIndicesMap.get(v);
+        Integer x = verticesIndices.get(u);
+        Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
             added = true;
+            edges.add(new Edge(x, y));
+            adjacencyMatrix[x][y] = 1;
             if (!isDirected) {
-                adjacencyMatrix[x][y] = 1;
                 adjacencyMatrix[y][x] = 1;
-            } else
-                adjacencyMatrix[x][y] = 1;
+            }
         }
         return added;
     }
 
     /**
-     * Adds a directed edge from vertex 'u' to vertex 'v' if isDirected with weight 'w'. Adds an edge between verticesMap
-     * 'u' and 'v' of weight 'w' otherwise.
+     * Adds a directed edge from vertex 'index' to vertex 'v' if isDirected with weight 'w'. Adds an edge between vertices
+     * 'index' and 'v' of weight 'w' otherwise.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
-     * @param w is the weight of the edge between 'u' and 'v'
+     * @param w is the weight of the edge between 'index' and 'v'
      */
     @Override
     public boolean addEdge(V u, V v, double w) {
         boolean added = false;
-        Integer x = verticesIndicesMap.get(u);
-        Integer y = verticesIndicesMap.get(v);
+        Integer x = verticesIndices.get(u);
+        Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
             added = true;
+            edges.add(new Edge(x, y, w));
             adjacencyMatrix[x][y] = 1;
             weightMatrix[x][y] = w;
-            connections.add(new Vertex(x, y, w));
             if (!isDirected) {
                 adjacencyMatrix[y][x] = 1;
                 weightMatrix[y][x] = w;
@@ -244,23 +238,32 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @Override
     public boolean removeVertex(V v) {
         boolean removed = false;
-        Integer position = verticesIndicesMap.get(v);
+        Integer position = verticesIndices.get(v);
         if (position != null) {
-            verticesMap.remove(position);
-            verticesIndicesMap.remove(v);
+            vertices.remove(position);
+            verticesIndices.remove(v);
             emptySlots.add(position);
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < edges.size(); i++) {//Removes from edges list.
+                Edge toRemove = edges.get(i);
+                if (toRemove.u == position || toRemove.v == position)
+                    edges.remove(toRemove);
+            }
+            for (int i = 0; i < size; i++) {//Removes from its row position in both matrices.
                 adjacencyMatrix[position][i] = 0;
-            for (int i = 0; i < size; i++)
+                weightMatrix[position][i] = Double.MIN_VALUE;
+            }
+            for (int i = 0; i < size; i++) {//Removes from its column position in both matrices.
                 adjacencyMatrix[i][position] = 0;
+                weightMatrix[i][position] = Double.MIN_VALUE;
+            }
             removed = true;
         }
         return removed;
     }
 
     /**
-     * Removes a directed edge from vertex 'u' to vertex 'v' if the graph is directed. Otherwise, removes an undirected
-     * edge between verticesMap 'u' and 'v'.
+     * Removes a directed edge from vertex 'index' to vertex 'v' if the graph is directed. Otherwise, removes an undirected
+     * edge between vertices 'index' and 'v'.
      *
      * @param u vertex connected with V
      * @param v vertex connected with U
@@ -268,51 +271,52 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @Override
     public boolean removeEdge(V u, V v) {
         boolean removed = false;
-        Integer x = verticesIndicesMap.get(u);
-        Integer y = verticesIndicesMap.get(v);
+        Integer x = verticesIndices.get(u);
+        Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
             removed = true;
+            adjacencyMatrix[x][y] = 0;
+            weightMatrix[x][y] = Double.MIN_VALUE;
             if (!isDirected) {
-                adjacencyMatrix[x][y] = 0;
-                adjacencyMatrix[x][y] = 0;
-                weightMatrix[x][y] = 0.0;
-                weightMatrix[y][x] = 0.0;
-            } else {
-                adjacencyMatrix[x][y] = 0;
-                weightMatrix[x][y] = 0.0;
+                adjacencyMatrix[y][x] = 0;
+                weightMatrix[y][x] = Double.MIN_VALUE;
+            }
+            for (int i = 0; i < edges.size(); i++) {//Removes from edges list.
+                Edge toRemove = edges.get(i);
+                if (isDirected) {
+                    if (toRemove.u == x && toRemove.v == y)
+                        edges.remove(toRemove);
+                } else if ((toRemove.u == x && toRemove.v == y) || (toRemove.u == y && toRemove.v == x))
+                    edges.remove(toRemove);
             }
         }
         return removed;
     }
 
     /**
-     * Returns a List<V> containing all verticesMap adjacent to 'v'.
+     * Returns a List<V> containing all vertices adjacent to 'v'.
      *
-     * @param v vertex whose adjacent verticesMap are to be consulted
-     * @return a List<V> containing all verticesMap adjacent to 'v'
+     * @param v vertex whose adjacent vertices are to be consulted
+     * @return a List<V> containing all vertices adjacent to 'v'
      */
     @Override
+    @SuppressWarnings("unchecked")
     public List<V> vertexAdjacent(V v) {
-        Integer position = verticesIndicesMap.get(v);
+        Integer position = verticesIndices.get(v);
         List<V> adjacentVertices = null;
         if (position != null) {
-            Set<Integer> adjacentVerticesPositions = new HashSet<>();
-            for (int i = 0; i < size; i++)
-                if (adjacencyMatrix[position][i] != 0)//Vertex at position i is adjacent
-                    adjacentVerticesPositions.add(i);
-            if (!isDirected) //Only necessary to execute if graph is not directed
-                for (int i = 0; i < size; i++)
-                    if (adjacencyMatrix[i][position] != 0)//Vertex at position i is adjacent
-                        adjacentVerticesPositions.add(i);
-            adjacentVertices = new ArrayList<>();
-            for (Integer key : adjacentVerticesPositions)
-                adjacentVertices.add(verticesMap.get(key));
+            adjacentVertices = new LinkedList<>();
+            for (int i = 0; i < size; i++) {
+                if (adjacencyMatrix[position][i] == 1) {
+                    adjacentVertices.add((V) vertices.get(i).info);
+                }
+            }
         }
         return adjacentVertices;
     }
 
     /**
-     * If the graph is undirected, determines if verticesMap 'u' and 'v' share an edge. Otherwise, determines if there is
+     * If the graph is undirected, determines if vertices 'u' and 'v' share an edge. Otherwise, determines if there is
      * a directed edge from 'u' to 'v' and 'v' to 'u'.
      *
      * @param u a vertex
@@ -321,25 +325,19 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean areConnected(V u, V v) {
-        Integer x = verticesIndicesMap.get(u);
-        Integer y = verticesIndicesMap.get(v);
+        Integer x = verticesIndices.get(u);
+        Integer y = verticesIndices.get(v);
 
-        // return adjacencyMatrix[uValor][vValor] == 1 && adjacencyMatrix[vValor][uValor] == 1;
         // This return exists in case there is no need of being specific about the direction
         if (x != null && y != null) {
-            if (isDirected) {
-                return adjacencyMatrix[x][y] == 1;
-                // this returns if u connected and directed to v
-            } else {
-                return adjacencyMatrix[x][y] == 1 && adjacencyMatrix[x][y] == 1;
-                // in case the graph is not connected then both should be connected to each other
-            }
+            return adjacencyMatrix[x][y] == 1;
+            // this returns if index connected and directed to v
         } else
-            return false;//TODO: Revisar buenas practicas.
+            return false;
     }
 
     /**
-     * Returns the weight matrix containing the weights of every edge, directed or not, between all verticesMap in the
+     * Returns the weight matrix containing the weights of every edge, directed or not, between all vertices in the
      * graph.
      *
      * @return the matrix containing all weights in the graph
@@ -366,95 +364,27 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     @Override
     public int getVertexSize() {
-        return verticesMap.size();
+        return vertices.size();
+    }
+
+    @Override
+    public Map<V, Integer> getVertices() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Edge> getEdges() {
+        return edges;
     }
 
     /**
-     * Returns the index of vertex 'u' in the matrix.
+     * Returns the index of vertex 'index' in the matrix.
      *
      * @param u the vertex whose index will be returned
      * @return the index of the vertex in the matrix
      */
     @Override
     public int getIndex(V u) {
-        return verticesIndicesMap.get(u) != null ? verticesIndicesMap.get(u) : -1;
-    }
-
-//    /**
-//     * TODO
-//     *
-//     * @return
-//     */
-//    public int getSize() {
-//        return size;
-//    }
-
-//    /**
-//     * TODO
-//     *
-//     * @param i
-//     * @return
-//     */
-//    public V getVertex(double i) {
-//        return verticesMap.get((int) i);
-//    }
-
-//    /**
-//     * TODO
-//     *
-//     * @return
-//     */
-//    public NavigableSet<Integer> getUsedIndices() {
-//        return usedIndices;
-//    }
-//
-//    /**
-//     * @return
-//     */
-//    public ArrayList<Vertex> getConnections() {
-//        return connections;
-//    }
-
-    /**
-     * TODO
-     */
-    public class Vertex implements Comparable {
-        int u;
-        int v;
-        double weight;
-
-        Vertex(int u, int v, double weight) {
-            this.u = u;
-            this.v = v;
-            this.weight = weight;
-        }
-
-        @Override
-        public int compareTo(Object o) {
-            double parameter = (double) o;
-            if (weight > parameter) {
-                return 1;
-            } else return weight < parameter ? -1 : 0;
-        }
-    }
-
-    /**
-     * TODO
-     *
-     * @return
-     */
-    @Override
-    public Map<Integer, V> getVertices() {
-        return verticesMap;
-    }
-
-    /**
-     * TODO
-     *
-     * @return
-     */
-    @Override
-    public Map<V, Integer> getIndices() {
-        return verticesIndicesMap;
+        return verticesIndices.get(u) != null ? verticesIndices.get(u) : -1;
     }
 }
