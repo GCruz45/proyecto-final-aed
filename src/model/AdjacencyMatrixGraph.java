@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.*;
+
 import java.util.*;
 
 /**
@@ -65,7 +67,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      * A Set that contains ordered, non-duplicate Integers of empty row/columns in the matrix whose values are lesser
      * than the logical size.
      */
-    private NavigableSet<Integer> emptySlots;//TODO: relocate initialization
+    private NavigableSet<Integer> emptySlots;
 
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
@@ -132,15 +134,16 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     /**
      * Adds the given vertex to the graph.
      *
-     * @param v The new vertex to be added
+     * @param u the new vertex to be added
      * @return true if the vertex did not already exist in the graph
+     * @throws ElementAlreadyPresentException if u is already present in the graph
      */
     @SuppressWarnings("ConstantConditions, unchecked")
     @Override
-    public boolean addVertex(V v) {
+    public boolean addVertex(V u) throws ElementAlreadyPresentException {
         boolean added = false;
         int index;
-        if (verticesIndices.get(v) != null) {
+        if (verticesIndices.get(u) != null) {
             if (emptySlots.isEmpty()) {//No reusable rows/columns in the matrix
                 if (size == adjacencyMatrix.length) {//Needs to initialize a bigger array
                     double[][] placeHolder = adjacencyMatrix;
@@ -160,8 +163,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                 index = size - 1;
             } else
                 index = emptySlots.pollFirst();//TODO: May assign null?
-            vertices.put(index, new Vertex(index, v));
-            verticesIndices.put(v, index);
+            vertices.put(index, new Vertex(index, u));
+            verticesIndices.put(u, index);
             for (int i = 0; i < 2; i++) {//Sets the weight of all edges from the new vertex to infinity.
                 for (int j = 0; j < size; j++) {
                     switch (i) {
@@ -181,14 +184,18 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Adds a directed edge from vertex 'index' to vertex 'v' if the graph is directed. Otherwise, adds an edge between
-     * vertices 'index' and 'v'.
+     * Adds a directed edge from vertex 'u' to vertex 'v' if the graph is directed. Otherwise, adds an edge between
+     * vertices 'u' and 'v'. Admits loops.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
+     * @return
+     * @throws WrongEdgeTypeException if attempting to add to a weighted graph
      */
     @Override
-    public boolean addEdge(V u, V v) {
+    public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
+        if (!isWeighted)
+            throw new WrongEdgeTypeException("Tried to add an unweighted edge to a weighted graph.");
         boolean added = false;
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
@@ -204,15 +211,19 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Adds a directed edge from vertex 'index' to vertex 'v' if isDirected with weight 'w'. Adds an edge between vertices
-     * 'index' and 'v' of weight 'w' otherwise.
+     * Adds a directed edge from vertex 'u' to vertex 'v' if isDirected with weight 'w'. Adds an edge between vertices
+     * 'u' and 'v' of weight 'w' otherwise. Admits loops.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
      * @param w is the weight of the edge between 'index' and 'v'
+     * @return
+     * @throws WrongEdgeTypeException
      */
     @Override
-    public boolean addEdge(V u, V v, double w) {
+    public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {//TODO: Modificar para usar ElementNotfound en vez del if()
+        if (!isWeighted)
+            throw new WrongEdgeTypeException("Tried to add a weighted edge to an unweighted graph.");
         boolean added = false;
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
@@ -230,18 +241,19 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Attempts to remove vertex 'v' from the graph.
+     * Attempts to remove vertex 'u' from the graph.
      *
-     * @param v vertex to be removed from the graph
-     * @return true if 'v' exists in the graph. False otherwise
+     * @param u vertex to be removed from the graph
+     * @return true if 'u' exists in the graph. False otherwise
+     * @throws ElementNotFoundException
      */
     @Override
-    public boolean removeVertex(V v) {
+    public boolean removeVertex(V u) throws ElementNotFoundException {
         boolean removed = false;
-        Integer position = verticesIndices.get(v);
+        Integer position = verticesIndices.get(u);
         if (position != null) {
             vertices.remove(position);
-            verticesIndices.remove(v);
+            verticesIndices.remove(u);
             emptySlots.add(position);
             for (int i = 0; i < edges.size(); i++) {//Removes from edges list.
                 Edge toRemove = edges.get(i);
@@ -262,14 +274,16 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Removes a directed edge from vertex 'index' to vertex 'v' if the graph is directed. Otherwise, removes an undirected
-     * edge between vertices 'index' and 'v'.
+     * Removes a directed edge from vertex 'u' to vertex 'v' if the graph is directed. Otherwise, removes an undirected
+     * edge between vertices 'u' and 'v'.
      *
      * @param u vertex connected with V
      * @param v vertex connected with U
+     * @return
+     * @throws ElementNotFoundException
      */
     @Override
-    public boolean removeEdge(V u, V v) {
+    public boolean removeEdge(V u, V v) throws ElementNotFoundException {
         boolean removed = false;
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
@@ -298,10 +312,11 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      *
      * @param v vertex whose adjacent vertices are to be consulted
      * @return a List<V> containing all vertices adjacent to 'v'
+     * @throws ElementNotFoundException
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<V> vertexAdjacent(V v) {
+    public List<V> vertexAdjacent(V v) throws ElementNotFoundException {
         Integer position = verticesIndices.get(v);
         List<V> adjacentVertices = null;
         if (position != null) {
@@ -322,9 +337,10 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      * @param u a vertex
      * @param v a vertex
      * @return true if and only if said edge exists
+     * @throws ElementNotFoundException
      */
     @Override
-    public boolean areConnected(V u, V v) {
+    public boolean areConnected(V u, V v) throws ElementNotFoundException {
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
 
@@ -367,24 +383,36 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         return vertices.size();
     }
 
+    /**
+     * TODO
+     *
+     * @return
+     * @throws ElementNotFoundException
+     */
     @Override
-    public Map<V, Integer> getVertices() {
+    public Map<V, Integer> getVertices() throws ElementNotFoundException {
         return null;
     }
 
+    /**
+     * TODO
+     *
+     * @return
+     */
     @Override
     public ArrayList<Edge> getEdges() {
         return edges;
     }
 
     /**
-     * Returns the index of vertex 'index' in the matrix.
+     * Returns the index of vertex 'u' in the matrix.
      *
      * @param u the vertex whose index will be returned
      * @return the index of the vertex in the matrix
+     * @throws ElementNotFoundException
      */
     @Override
-    public int getIndex(V u) {
+    public int getIndex(V u) throws ElementNotFoundException {
         return verticesIndices.get(u) != null ? verticesIndices.get(u) : -1;
     }
 }

@@ -5,12 +5,15 @@ import java.util.*;
 import collections.CQueue;
 import collections.ICollection;
 import collections.Stack;
+import exceptions.ElementNotFoundException;
+import exceptions.WrongEdgeTypeException;
 
 /**
  * This class is meant to execute different algorithms on graphs.
  *
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
+ * TODO: Check all contract's grammar/spelling.
  */
 public class GraphAlgorithms {
 
@@ -19,11 +22,11 @@ public class GraphAlgorithms {
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   Graph which is going to be traversed
-     * @param v   Edge where it's going to start the BFS
+     * @param u   Edge where it's going to start the BFS
      * @return A list with a resultant order due to a BFS
      */
-    public static <V> List<V> bfs(IGraph<V> g, V v) {
-        return traversal(g, v, new Stack<>());
+    public static <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
+        return traversal(g, u, new Stack<>());
     }
 
     /**
@@ -31,11 +34,11 @@ public class GraphAlgorithms {
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   Graph which is going to be traversed
-     * @param v   Edge where it's going to start the DFS
+     * @param u   Edge where it's going to start the DFS
      * @return A list with a resultant order due to a DFS
      */
-    public static <V> List<V> dfs(IGraph<V> g, V v) {
-        return traversal(g, v, new CQueue<>());
+    public static <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
+        return traversal(g, u, new CQueue<>());
     }
 
     /**
@@ -43,16 +46,16 @@ public class GraphAlgorithms {
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   The graph to be traversed.
-     * @param v   The vertex from which the traversal will begin.
+     * @param u   The vertex from which the traversal will begin.
      * @param ds  The data structure to be used in this traversal. Either a Stack for a DFS or a CQueue for BFS.<br>
      *            <pre> ds Must be empty.
-     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @return A List with the resulting traversal performed on the given graph from the given vertex.
+     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @return A List with the resulting traversal performed on the given graph from the given vertex.
      */
-    private static <V> List<V> traversal(IGraph<V> g, V v, ICollection<V> ds) {
+    private static <V> List<V> traversal(IGraph<V> g, V u, ICollection<V> ds) throws ElementNotFoundException {
         List<V> trav = new ArrayList<>();
         //Invariant: Each algorithm adds the given element first.
 
-        V vertex = v;
+        V vertex = u;
         ds.add(vertex);
 
         boolean[] visited = new boolean[g.getVertexSize()];
@@ -67,8 +70,8 @@ public class GraphAlgorithms {
                 trav.add(vertex);
                 visited[indexV] = true;
 
-                List<V> adjacents = g.vertexAdjacent(vertex);
-                ds.addAll(adjacents);
+                List<V> adjacent = g.vertexAdjacent(vertex);
+                ds.addAll(adjacent);
             }
         }
         return trav;
@@ -78,11 +81,11 @@ public class GraphAlgorithms {
      * An algorithm based on Dijkstra's approach to find the shortest path from a given source vertex to all other vertices in the graph.
      *
      * @param <V> Abstract data type that represent a vertex within the graph
-     * @param g   The graph to be traversed.
-     * @param s   The vertex where Dijkstra is going to be used.
-     * @return A  map with the shortest paths founded
+     * @param g   The graph to be traversed
+     * @param s   The vertex where Dijkstra is going to be used
+     * @return A  map with the shortest paths found
      */
-    public static <V> double[][] dijkstra(IGraph<V> g, V s) {
+    public static <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
         double[][] w = g.weightMatrix();
         double[][] shortestPath = new double[w.length][2];
         int logicalSize = g.getVertexSize();
@@ -101,8 +104,12 @@ public class GraphAlgorithms {
                 return comparison;
             }
         });
-        for (int i = 0; i < w.length; i++)
-            q.add(new Double[]{(double) i, w[indexOfS][i]});
+        for (int i = 0; i < w.length; i++) {
+            if (w[indexOfS][i] < 0.0) {
+                throw new WrongEdgeTypeException("Negative weight found.");
+            }
+            q.add(new Double[]{(double) i, w[indexOfS][i]});//TODO: se estan agregando vertices inaccesibles
+        }
 
         while (!q.isEmpty()) {
             Double[] u = q.poll();//extract-Min
@@ -110,7 +117,6 @@ public class GraphAlgorithms {
             for (int v = 0; v < w.length; v++) {
                 if (w[indexOfU][v] < Double.MAX_VALUE) {//index shares and edge with i
                     relax(shortestPath, q, u, v, w);
-                    q.add(new Double[]{(double) v, shortestPath[v][0]});
                 }
             }
         }
@@ -124,7 +130,13 @@ public class GraphAlgorithms {
      * @param shortestPath
      * @param w
      */
-    private static void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) {
+    private static void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
+        for (int i = 0; i < w.length; i++) {
+            if (w[indexOfS][i] < 0.0) {
+                throw new WrongEdgeTypeException("Negative weight found.");
+            }
+            shortestPath[i][0] = w[indexOfS][i];
+        }
         System.arraycopy(w[indexOfS], 0, shortestPath[0], 0, w.length);//TODO: Check if works.
         for (int i = 0; i < w.length; i++) {
             shortestPath[i][1] = Double.MAX_VALUE;
@@ -147,13 +159,17 @@ public class GraphAlgorithms {
         double suDistance = shortestPath[indexOfU][0];
         double uvDistance = w[indexOfU][indexOfV];
         double svDistance = shortestPath[indexOfV][0];
+        //TODO: Check possible overflow of Double.MAX_VALUE
         if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
             shortestPath[indexOfV][0] = suDistance + uvDistance;
             shortestPath[indexOfV][1] = indexOfU;
         }
+        q.add(new Double[]{(double) indexOfV, shortestPath[indexOfV][0]});
     }
 
     /**
+     * TODO
+     *
      * @param g
      * @param <V>
      * @return
@@ -179,7 +195,7 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> int[] prim(IGraph<V> g, V s) {
+    public static <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException {
         //TODO: Assert if is undirected. Update comments.
         double[][] w = g.weightMatrix();
         int vertices = w.length;
@@ -233,7 +249,7 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> Set<Edge> kruskal(IGraph<V> g) {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+    public static <V> Set<Edge> kruskal(IGraph<V> g) throws ElementNotFoundException {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
         Set<Edge> vertexSet = new LinkedHashSet<>(g.getVertexSize());
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
         NavigableSet<Edge> orderedEdges = new TreeSet<>(g.getEdges());

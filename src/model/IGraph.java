@@ -1,5 +1,9 @@
 package model;
 
+import exceptions.ElementAlreadyPresentException;
+import exceptions.ElementNotFoundException;
+import exceptions.WrongEdgeTypeException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +20,10 @@ public interface IGraph<V> {
     /**
      * Adds a vertex to the graph
      *
-     * @param v The new vertex to be added
+     * @param u The new vertex to be added
      * @return True if was added and false if it was already in the graph
      */
-    boolean addVertex(V v);
+    boolean addVertex(V u) throws ElementAlreadyPresentException;
 
     /**
      * Adds an edge to the graph
@@ -28,7 +32,7 @@ public interface IGraph<V> {
      * @param u a vertex within the graph
      * @param v a vertex within the graph
      */
-    boolean addEdge(V u, V v);
+    boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException;
 
     /**
      * Adds a weighted edge to the graph
@@ -38,15 +42,15 @@ public interface IGraph<V> {
      * @param v a vertex within the graph
      * @param w    is the weight of the edge
      */
-    boolean addEdge(V u, V v, double w);
+    boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException;
 
     /**
      * Removes a vertex within the graph
      *
-     * @param v A vertex to be removed of the graph
+     * @param u A vertex to be removed of the graph
      * @return True if the vertex was removed or false if the vertex didn't exist
      */
-    boolean removeVertex(V v);
+    boolean removeVertex(V u) throws ElementNotFoundException;
 
     /**
      * Removes an edge within the graph
@@ -54,7 +58,7 @@ public interface IGraph<V> {
      * @param u A vertex connected with V
      * @param v A vertex connected with U
      */
-    boolean removeEdge(V u, V v);
+    boolean removeEdge(V u, V v) throws ElementNotFoundException;
 
     /**
      * Gives a list of adjacent vertices of V
@@ -62,7 +66,7 @@ public interface IGraph<V> {
      * @param u The vertex to be consulted its adjacent vertices
      * @return A list with all the adjacent vertices of V
      */
-    List<V> vertexAdjacent(V u);
+    List<V> vertexAdjacent(V u) throws ElementNotFoundException;
 
     /**
      * Check if U and V are connected
@@ -71,7 +75,7 @@ public interface IGraph<V> {
      * @param v Is a vertex
      * @return True if U and V are connected or false if they're not
      */
-    boolean areConnected(V u, V v);
+    boolean areConnected(V u, V v) throws ElementNotFoundException;
 
     /**
      * <pre> The graph is weighted
@@ -81,24 +85,27 @@ public interface IGraph<V> {
 
     /**
      * TODO
+     *
      * @return True if the graph is directed or false if it isn't
      */
     boolean isDirected();
 
     /**
      * TODO
+     *
      * @param u
      * @return
      */
-    int getIndex(V u);
+    int getIndex(V u) throws ElementNotFoundException;
 
     /**
      * TODO
+     *
      * @return
      */
     int getVertexSize();
 
-    Map<V, Integer> getVertices();
+    Map<V, Integer> getVertices() throws ElementNotFoundException;
 
     ArrayList<Edge> getEdges();
 }
