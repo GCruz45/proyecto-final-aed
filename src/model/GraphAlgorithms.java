@@ -7,6 +7,7 @@ import collections.ICollection;
 import collections.Stack;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
+import exceptions.WrongGraphType;
 
 /**
  * This class is meant to execute different algorithms on graphs.
@@ -49,7 +50,7 @@ public class GraphAlgorithms {
      * @param u   The vertex from which the traversal will begin.
      * @param ds  The data structure to be used in this traversal. Either a Stack for a DFS or a CQueue for BFS.<br>
      *            <pre> ds Must be empty.
-     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @return A List with the resulting traversal performed on the given graph from the given vertex.
+     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @return A List with the resulting traversal performed on the given graph from the given vertex.
      */
     private static <V> List<V> traversal(IGraph<V> g, V u, ICollection<V> ds) throws ElementNotFoundException {
         List<V> trav = new ArrayList<>();
@@ -174,7 +175,8 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> double[][] floydWarshall(IGraph<V> g) {//TODO: Se cambio el parametro; revisar consecuencias.
+    public static <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphType{//TODO: Se cambio el parametro; revisar consecuencias.
+        //TODO: Assert g is weighted.
         double[][] d = g.weightMatrix();
         int n = d.length;
         for (int k = 1; k <= n; k++) {
@@ -195,8 +197,10 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException {
-        //TODO: Assert if is undirected. Update comments.
+    public static <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphType {
+        if (g.isDirected())
+            throw new WrongGraphType("Graph is not undirected.");
+        //TODO: Update comments.
         double[][] w = g.weightMatrix();
         int vertices = w.length;
         double[] key = new double[vertices];//Stores the smallest edge to a given vertex.
@@ -249,7 +253,8 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> Set<Edge> kruskal(IGraph<V> g) throws ElementNotFoundException {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+    public static <V> Set<Edge> kruskal(IGraph<V> g) throws WrongGraphType {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+        //TODO: Check if is not connected.
         Set<Edge> vertexSet = new LinkedHashSet<>(g.getVertexSize());
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
         NavigableSet<Edge> orderedEdges = new TreeSet<>(g.getEdges());

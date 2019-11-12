@@ -105,7 +105,7 @@ public interface IGraph<V> {
      */
     int getVertexSize();
 
-    Map<V, Integer> getVertices() throws ElementNotFoundException;
+    Map<V, Integer> getVertices();
 
     ArrayList<Edge> getEdges();
 }
