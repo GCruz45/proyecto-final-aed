@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/Unit Tests/Unit Tests.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/WrongGraphType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/proyecto-final-aed.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Class Diagram/proyecto-final-aed.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/proyecto-final-aed.vpp.bak_000f" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Class Diagram/proyecto-final-aed.vpp.bak_000f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/proyecto-final-aed.vpp.bak_001d" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Class Diagram/proyecto-final-aed.vpp.bak_001d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/proyecto-final-aed.vpp.bak_002d" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Class Diagram/proyecto-final-aed.vpp.bak_002d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IGraph.java" afterDir="false" />
-    </list>
+    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -189,7 +175,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573534022760" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573534285162" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="full.screen.before.presentation.mode" value="true" />
@@ -240,7 +226,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -696,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        <state relative-caret-position="105">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
