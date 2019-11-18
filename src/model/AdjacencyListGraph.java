@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.Map;
  * @param <V> Abstract data type which represents an object from a natural problem that is going to be modeled as a vertex in a graph representation of the problem
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
+ * TODO: Check contracts grammar/spelling.
  */
 public class AdjacencyListGraph<V> implements IGraph<V> {
 
@@ -58,18 +61,25 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         vertices = new HashMap<>();
     }
 
+    /**
+     * TODO
+     *
+     * @param u The new vertex to be added
+     * @return
+     * @throws ElementAlreadyPresentException
+     */
     @Override
-    public boolean addVertex(V v) {
+    public boolean addVertex(V u) throws ElementAlreadyPresentException {
         boolean added = false;
         // Check if the vertex is not on the map already
-        if (!searchVertex(v)) {
+        if (!searchVertex(u)) {
             @SuppressWarnings("unchecked")
             // Create a new empty list for that vertex
                     List<V> vList = (List<V>) new ArrayList<Object>();
             // Get the position for this new vertex
             int index = adjacencyLists.size();
             // Add the vertex to the map
-            vertices.put(v, index);
+            vertices.put(u, index);
             // Add the vertex empty list to the adjacencyLists
             adjacencyLists.add(vList);
             // Change the value to true indicating that it was possible to add the vertex
@@ -88,8 +98,16 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         return vertices.containsValue(v);
     }
 
+    /**
+     * TODO
+     *
+     * @param u a vertex within the graph
+     * @param v a vertex within the graph
+     * @return
+     * @throws WrongEdgeTypeException
+     */
     @Override
-    public boolean addEdge(V u, V v) {
+    public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
         // TODO Auto-generated method stub
 
         int ValueU = vertices.get(u);
@@ -105,29 +123,45 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         return false;//TODO: Finish implementation
     }
 
+    /**
+     * TODO
+     *
+     * @param u a vertex within the graph
+     * @param v a vertex within the graph
+     * @param w is the weight of the edge
+     * @return
+     * @throws WrongEdgeTypeException
+     */
     @Override
-    public boolean addEdge(V u, V v, double w) {
+    public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
         // TODO Auto-generated method stub
         return false;
     }
 
+    /**
+     * TODO
+     *
+     * @param u A vertex to be removed of the graph
+     * @return
+     * @throws ElementNotFoundException
+     */
     @SuppressWarnings("unlikely-arg-type")
     @Override
-    public boolean removeVertex(V v) {
+    public boolean removeVertex(V u) throws ElementNotFoundException {
 
         // first looks if the vertex exists
-        if (vertices.containsKey(v)) {
+        if (vertices.containsKey(u)) {
 
             // remove the existing list which represents the adjacent vertices of the vertex to remove
-            adjacencyLists.remove(vertices.get(v));
+            adjacencyLists.remove(vertices.get(u));
 
             // remove any existing connection to the vertex
             for (int i = 0; i < adjacencyLists.size(); i++) {
-                if (adjacencyLists.get(i).contains(v)) adjacencyLists.get(i).remove(i);
+                if (adjacencyLists.get(i).contains(u)) adjacencyLists.get(i).remove(i);
             }
 
             // removes the vertex form the map
-            vertices.remove(v);
+            vertices.remove(u);
 
             return true;
 
@@ -136,20 +170,43 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         }
     }
 
+    /**
+     * TODO
+     *
+     * @param u A vertex connected with V
+     * @param v A vertex connected with U
+     * @return
+     * @throws ElementNotFoundException
+     */
     @Override
-    public boolean removeEdge(V u, V v) {
+    public boolean removeEdge(V u, V v) throws ElementNotFoundException {
         // TODO Auto-generated method stub
         return false;
-    }
+    }//TODO: error por no contener a u, v o el edge.
 
+    /**
+     * TODO
+     *
+     * @param u The vertex to be consulted its adjacent vertices
+     * @return
+     * @throws ElementNotFoundException
+     */
     @Override
-    public List<V> vertexAdjacent(V v) {
+    public List<V> vertexAdjacent(V u) throws ElementNotFoundException {
         // TODO Auto-generated method stub
         return null;
     }
 
+    /**
+     * TODO
+     *
+     * @param u Is a vertex
+     * @param v Is a vertex
+     * @return
+     * @throws ElementNotFoundException
+     */
     @Override
-    public boolean areConnected(V u, V v) {
+    public boolean areConnected(V u, V v) throws ElementNotFoundException {
 
         int uValor = vertices.get(u);
         int vValor = vertices.get(v);
@@ -167,12 +224,22 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
 
     }
 
+    /**
+     * TODO
+     *
+     * @return
+     */
     @Override
     public double[][] weightMatrix() {
         // TODO Auto-generated method stub
         return null;
     }
 
+    /**
+     * TODO
+     *
+     * @return
+     */
     @Override
     public boolean isDirected() {
         // TODO Auto-generated method stub
@@ -192,7 +259,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public int getIndex(V u) {
+    public int getIndex(V u) throws ElementNotFoundException {
         return vertices.get(u);
     }
 
@@ -212,12 +279,13 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public Map<V, Integer> getVertices() {
+    public Map<V, Integer> getVertices() throws ElementNotFoundException {
         return vertices;
     }
 
     /**
      * TODO
+     *
      * @return
      */
     @Override
