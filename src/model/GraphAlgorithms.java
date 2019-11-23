@@ -26,7 +26,7 @@ public class GraphAlgorithms {
      * @param u   Edge where it's going to start the BFS
      * @return A list with a resultant order due to a BFS
      */
-    public static <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new Stack<>());
     }
 
@@ -38,7 +38,7 @@ public class GraphAlgorithms {
      * @param u   Edge where it's going to start the DFS
      * @return A list with a resultant order due to a DFS
      */
-    public static <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new CQueue<>());
     }
 
