@@ -3,14 +3,14 @@ package exceptions;
 /**
  * TODO
  */
-public class WrongGraphType extends Exception {
+public class WrongGraphTypeException extends Exception {
 
     /**
      * TODO
      *
      * @param message
      */
-    public WrongGraphType(String message) {
+    public WrongGraphTypeException(String message) {
         super(message);
     }
 }

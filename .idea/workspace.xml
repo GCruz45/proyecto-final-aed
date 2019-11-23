@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="" />
+    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,55 +15,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
+        <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="315">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
+        <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="300">
+              <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1841#1842#0" expanded="true" />
-                <element signature="e#1885#1886#0" expanded="true" />
-                <element signature="e#2785#2786#0" expanded="true" />
-                <element signature="e#2821#2822#0" expanded="true" />
-                <element signature="e#12918#12919#0" expanded="true" />
-                <element signature="e#12953#12954#0" expanded="true" />
-                <element signature="e#13124#13125#0" expanded="true" />
-                <element signature="e#13157#13158#0" expanded="true" />
-                <element signature="e#13318#13319#0" expanded="true" />
-                <element signature="e#13356#13357#0" expanded="true" />
-                <element signature="e#13668#13669#0" expanded="true" />
-                <element signature="e#13696#13697#0" expanded="true" />
+                <element signature="e#165#166#0" expanded="true" />
+                <element signature="e#223#224#0" expanded="true" />
+                <element signature="e#366#396#0" expanded="true" />
+                <element signature="e#1074#1104#0" expanded="true" />
+                <element signature="e#1790#1820#0" expanded="true" />
+                <element signature="e#2505#2535#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
+        <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="405">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#160#161#0" expanded="true" />
+                <element signature="e#217#218#0" expanded="true" />
+                <element signature="e#368#398#0" expanded="true" />
+                <element signature="e#1083#1113#0" expanded="true" />
+                <element signature="e#1806#1836#0" expanded="true" />
+                <element signature="e#2528#2558#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,17 +119,17 @@
         <option value="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" />
         <option value="$PROJECT_DIR$/src/exceptions/WrongGraphType.java" />
         <option value="$PROJECT_DIR$/src/model/IGraph.java" />
-        <option value="$PROJECT_DIR$/src/model/GraphAlgorithms.java" />
-        <option value="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" />
         <option value="$PROJECT_DIR$/test/model/IGraphTest.java" />
         <option value="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" />
         <option value="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" />
+        <option value="$PROJECT_DIR$/src/model/GraphAlgorithms.java" />
+        <option value="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="34" />
-    <option name="width" value="1600" />
+    <option name="width" value="683" />
     <option name="height" value="866" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -144,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,6 +154,23 @@
               <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proyecto-final-aed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyecto-final-aed" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -168,6 +178,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -175,7 +186,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573534285162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574552967915" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="full.screen.before.presentation.mode" value="true" />
@@ -226,6 +237,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -233,7 +245,7 @@
       <window_info id="simpleUML" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15057915" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.13320464" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Analyze Dataflow to" order="0" weight="0.32882273" />
@@ -450,17 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/ElementAlreadyPresentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/collections/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -482,7 +483,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/WrongGraphType.java">
+    <entry file="file://$PROJECT_DIR$/src/exceptions/WrongGraphTypeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
@@ -500,89 +501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
-          <folding>
-            <element signature="docComment;class#GraphAlgorithms#0" />
-            <element signature="docComment;method#bfs#0;class#GraphAlgorithms#0" />
-            <element signature="method#bfs#0;class#GraphAlgorithms#0" />
-            <element signature="docComment;method#dfs#0;class#GraphAlgorithms#0" />
-            <element signature="method#dfs#0;class#GraphAlgorithms#0" />
-            <element signature="docComment;method#traversal#0;class#GraphAlgorithms#0" />
-            <element signature="method#traversal#0;class#GraphAlgorithms#0" />
-            <element signature="e#2916#3299#1" />
-            <element signature="e#3099#3289#1" />
-            <element signature="docComment;method#dijkstra#0;class#GraphAlgorithms#0" />
-            <element signature="method#compare#0;class#4493:4863" />
-            <element signature="e#4843#5011#1" />
-            <element signature="e#4881#4917#1" />
-            <element signature="docComment;method#initializeSingleSource#0;class#GraphAlgorithms#0" />
-            <element signature="method#initializeSingleSource#0;class#GraphAlgorithms#0" />
-            <element signature="e#5803#5848#1" />
-            <element signature="e#5845#5936#1" />
-            <element signature="e#5473#5535#1" />
-            <element signature="docComment;method#relax#0;class#GraphAlgorithms#0" />
-            <element signature="method#relax#0;class#GraphAlgorithms#0" />
-            <element signature="e#6210#6413#1" />
-            <element signature="docComment;method#floydWarshall#0;class#GraphAlgorithms#0" />
-            <element signature="e#6706#6938#1" />
-            <element signature="docComment;method#prim#0;class#GraphAlgorithms#0" />
-            <element signature="method#prim#0;class#GraphAlgorithms#0" />
-            <element signature="class#7633:7892" />
-            <element signature="method#compare#0;class#7633:7892" />
-            <element signature="e#7947#8165#1" />
-            <element signature="e#8331#9050#1" />
-            <element signature="e#8510#9040#1" />
-            <element signature="e#8638#9026#1" />
-            <element signature="e#8787#9008#1" />
-            <element signature="docComment;method#kruskal#0;class#GraphAlgorithms#0" />
-            <element signature="method#kruskal#0;class#GraphAlgorithms#0" />
-            <element signature="e#10288#10370#0" />
-            <element signature="e#9682#10087#1" />
-            <element signature="e#9972#10077#1" />
-            <element signature="docComment;method#makeSet#0;class#GraphAlgorithms#0" />
-            <element signature="method#makeSet#0;class#GraphAlgorithms#0" />
-            <element signature="docComment;method#findSet#0;class#GraphAlgorithms#0" />
-            <element signature="method#findSet#0;class#GraphAlgorithms#0" />
-            <element signature="docComment;method#union#0;class#GraphAlgorithms#0" />
-            <element signature="method#union#0;class#GraphAlgorithms#0" />
-            <element signature="docComment;class#subset#0;class#GraphAlgorithms#0" />
-            <element signature="class#subset#0;class#GraphAlgorithms#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/IGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#IGraph#0" />
-            <element signature="docComment;method#addVertex#0;class#IGraph#0" />
-            <element signature="docComment;method#addEdge#0;class#IGraph#0" />
-            <element signature="docComment;method#addEdge#1;class#IGraph#0" />
-            <element signature="docComment;method#removeVertex#0;class#IGraph#0" />
-            <element signature="docComment;method#removeEdge#0;class#IGraph#0" />
-            <element signature="docComment;method#vertexAdjacent#0;class#IGraph#0" />
-            <element signature="docComment;method#areConnected#0;class#IGraph#0" />
-            <element signature="docComment;method#weightMatrix#0;class#IGraph#0" />
-            <element signature="docComment;method#isDirected#0;class#IGraph#0" />
-            <element signature="docComment;method#getIndex#0;class#IGraph#0" />
-            <element signature="docComment;method#getVertexSize#0;class#IGraph#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/model/IGraphTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/model/IGraphTest.java" />
     <entry file="file://$PROJECT_DIR$/src/model/AdjacencyListGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -640,19 +559,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
+    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="90">
           <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="120">
           <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -672,17 +588,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
+    <entry file="file://$PROJECT_DIR$/src/model/IGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="193">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#IGraph#0" />
+            <element signature="docComment;method#addVertex#0;class#IGraph#0" />
+            <element signature="docComment;method#addEdge#0;class#IGraph#0" />
+            <element signature="docComment;method#addEdge#1;class#IGraph#0" />
+            <element signature="docComment;method#removeVertex#0;class#IGraph#0" />
+            <element signature="docComment;method#removeEdge#0;class#IGraph#0" />
+            <element signature="docComment;method#vertexAdjacent#0;class#IGraph#0" />
+            <element signature="docComment;method#areConnected#0;class#IGraph#0" />
+            <element signature="docComment;method#weightMatrix#0;class#IGraph#0" />
+            <element signature="docComment;method#isDirected#0;class#IGraph#0" />
+            <element signature="docComment;method#getIndex#0;class#IGraph#0" />
+            <element signature="docComment;method#getVertexSize#0;class#IGraph#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exceptions/ElementAlreadyPresentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="300">
+          <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+          <folding>
+            <element signature="e#165#166#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#366#396#0" expanded="true" />
+            <element signature="e#1074#1104#0" expanded="true" />
+            <element signature="e#1790#1820#0" expanded="true" />
+            <element signature="e#2505#2535#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#160#161#0" expanded="true" />
+            <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#368#398#0" expanded="true" />
+            <element signature="e#1083#1113#0" expanded="true" />
+            <element signature="e#1806#1836#0" expanded="true" />
+            <element signature="e#2528#2558#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,7 +7,7 @@ import collections.ICollection;
 import collections.Stack;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
-import exceptions.WrongGraphType;
+import exceptions.WrongGraphTypeException;
 
 /**
  * This class is meant to execute different algorithms on graphs.
@@ -26,7 +26,7 @@ public class GraphAlgorithms {
      * @param u   Edge where it's going to start the BFS
      * @return A list with a resultant order due to a BFS
      */
-    public static <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new Stack<>());
     }
 
@@ -38,7 +38,7 @@ public class GraphAlgorithms {
      * @param u   Edge where it's going to start the DFS
      * @return A list with a resultant order due to a DFS
      */
-    public static <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new CQueue<>());
     }
 
@@ -79,9 +79,9 @@ public class GraphAlgorithms {
     }
 
     /**
-     * An algorithm based on Dijkstra's approach to find the shortest path from a given source vertex to all other vertices in the graph.
+     * An algorithm based on Dijkstra's approach to finding the shortest path from a given vertex to all vertices in the graph.
      *
-     * @param <V> Abstract data type that represent a vertex within the graph
+     * @param <V> Abstract data type that represents a vertex within the graph
      * @param g   The graph to be traversed
      * @param s   The vertex where Dijkstra is going to be used
      * @return A  map with the shortest paths found
@@ -109,7 +109,7 @@ public class GraphAlgorithms {
             if (w[indexOfS][i] < 0.0) {
                 throw new WrongEdgeTypeException("Negative weight found.");
             }
-            q.add(new Double[]{(double) i, w[indexOfS][i]});//TODO: se estan agregando vertices inaccesibles
+            q.add(new Double[]{(double) i, w[indexOfS][i]});//TODO: se estan agregando vertices inaccesibles?
         }
 
         while (!q.isEmpty()) {
@@ -175,8 +175,8 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphType{//TODO: Se cambio el parametro; revisar consecuencias.
-        //TODO: Assert g is weighted.
+    public static <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {//TODO: Se cambio el parametro; revisar consecuencias.
+        //TODO: Assert if g is weighted.
         double[][] d = g.weightMatrix();
         int n = d.length;
         for (int k = 1; k <= n; k++) {
@@ -197,14 +197,14 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphType {
+    public static <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphTypeException {
         if (g.isDirected())
-            throw new WrongGraphType("Graph is not undirected.");
+            throw new WrongGraphTypeException("Graph is not undirected.");
         //TODO: Update comments.
         double[][] w = g.weightMatrix();
         int vertices = w.length;
         double[] key = new double[vertices];//Stores the smallest edge to a given vertex.
-        int[] parent = new int[vertices];//Index of a vertex's parent (-1 == nill).
+        int[] parent = new int[vertices];//Index of a vertex's parent (-1 => parent == nill).
         Boolean[] marked = new Boolean[vertices];
         int logicalSize = g.getVertexSize();
         int indexOfS = g.getIndex(s);
@@ -253,7 +253,7 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
-    public static <V> Set<Edge> kruskal(IGraph<V> g) throws WrongGraphType {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+    public static <V> Set<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
         //TODO: Check if is not connected.
         Set<Edge> vertexSet = new LinkedHashSet<>(g.getVertexSize());
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
