@@ -34,6 +34,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     private boolean isDirected;
 
     /**
+     * TODO
+     */
+    private boolean isWeighted;
+
+    /**
      * Basic constructor that is initialized with default values
      */
     public AdjacencyListGraph() {
@@ -46,9 +51,10 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      *
      * @param id value to set "isDirected"
      */
-    public AdjacencyListGraph(boolean id) {
+    public AdjacencyListGraph(boolean id, boolean iw) {
         initialize();
         isDirected = id;
+        isWeighted = iw;
     }
 
     /**
@@ -57,6 +63,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     private void initialize() {
         isDirected = false;
+        isWeighted = false;
         adjacencyLists = new ArrayList<>();
         vertices = new HashMap<>();
     }
@@ -246,6 +253,15 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         return isDirected;
     }
 
+    /**
+     * TODO
+     * @return
+     */
+    @Override
+    public boolean isWeighted() {//TODO: Implement
+        return true;
+    }
+
 //    /**
 //     * @return The graph. A list with lists of vertices and its adjacent vertices
 //     */
@@ -279,7 +295,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public Map<V, Integer> getVertices() throws ElementNotFoundException {
+    public Map<V, Integer> getVertices(){
         return vertices;
     }
 

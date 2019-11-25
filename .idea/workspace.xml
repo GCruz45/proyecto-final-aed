@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collections/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collections/Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" afterDir="false" />
     </list>
@@ -13,46 +20,221 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+            <state relative-caret-position="357">
+              <caret line="190" column="112" lean-forward="true" selection-start-line="190" selection-start-column="112" selection-end-line="190" selection-end-column="112" />
               <folding>
-                <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#366#396#0" expanded="true" />
-                <element signature="e#1074#1104#0" expanded="true" />
-                <element signature="e#1790#1820#0" expanded="true" />
-                <element signature="e#2505#2535#0" expanded="true" />
+                <element signature="method#setStage2#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#setStage3#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#setStage4#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#setStage5#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#setStage6#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#2891#2896#0" />
+                <element signature="method#addVertex#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#3258#3263#0" />
+                <element signature="method#addEdge#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#4093#4098#0" />
+                <element signature="method#removeVertex#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#4420#4425#0" />
+                <element signature="method#removeEdge#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#5013#5018#0" />
+                <element signature="method#vertexAdjacent#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#5520#5525#0" />
+                <element signature="method#areConnected#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#isDirected#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#getVertexSize#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#7951#7956#0" />
+                <element signature="method#getVertices#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="method#getEdges#0;class#AdjacencyMatrixGraphTest#0" />
+                <element signature="e#8577#8582#0" />
+                <element signature="method#getIndex#0;class#AdjacencyMatrixGraphTest#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+            <state relative-caret-position="165">
+              <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/IGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#160#161#0" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
-                <element signature="e#368#398#0" expanded="true" />
-                <element signature="e#1083#1113#0" expanded="true" />
-                <element signature="e#1806#1836#0" expanded="true" />
-                <element signature="e#2528#2558#0" expanded="true" />
+                <element signature="docComment;method#addVertex#0;class#IGraph#0" />
+                <element signature="docComment;method#addEdge#0;class#IGraph#0" />
+                <element signature="docComment;method#addEdge#1;class#IGraph#0" />
+                <element signature="docComment;method#removeVertex#0;class#IGraph#0" />
+                <element signature="docComment;method#removeEdge#0;class#IGraph#0" />
+                <element signature="docComment;method#vertexAdjacent#0;class#IGraph#0" />
+                <element signature="docComment;method#areConnected#0;class#IGraph#0" />
+                <element signature="docComment;method#weightMatrix#0;class#IGraph#0" />
+                <element signature="docComment;method#isDirected#0;class#IGraph#0" />
+                <element signature="docComment;method#getIndex#0;class#IGraph#0" />
+                <element signature="docComment;method#getVertexSize#0;class#IGraph#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="334" column="50" selection-start-line="334" selection-start-column="50" selection-end-line="334" selection-end-column="50" />
+              <folding>
+                <element signature="docComment;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#DEFAULT_CAPACITY#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#GROWTH_FACTOR#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#size#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#isDirected#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#isWeighted#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#adjacencyMatrix#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#weightMatrix#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#vertices#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#verticesIndices#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#edges#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;field#emptySlots#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#AdjacencyMatrixGraph#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#AdjacencyMatrixGraph#1;class#AdjacencyMatrixGraph#0" />
+                <element signature="method#AdjacencyMatrixGraph#1;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#AdjacencyMatrixGraph#2;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#AdjacencyMatrixGraph#3;class#AdjacencyMatrixGraph#0" />
+                <element signature="method#AdjacencyMatrixGraph#3;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#initialize#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#addVertex#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#4315#4365#0" />
+                <element signature="e#7342#7574#1" />
+                <element signature="docComment;method#addEdge#1;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#8697#8929#1" />
+                <element signature="docComment;method#removeVertex#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="method#removeVertex#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#9356#10179#1" />
+                <element signature="e#9525#9726#1" />
+                <element signature="e#9770#9946#1" />
+                <element signature="e#9990#10169#1" />
+                <element signature="docComment;method#removeEdge#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="method#removeEdge#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#10857#11679#1" />
+                <element signature="e#10903#11669#1" />
+                <element signature="e#11068#11193#1" />
+                <element signature="e#11249#11655#1" />
+                <element signature="e#11363#11502#1" />
+                <element signature="e#11685#11929#1" />
+                <element signature="docComment;method#vertexAdjacent#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#12226#12235#0" />
+                <element signature="docComment;method#areConnected#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="method#areConnected#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="e#13533#13656#1" />
+                <element signature="e#13662#13906#1" />
+                <element signature="docComment;method#weightMatrix#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#isDirected#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#isWeighted#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#getVertexSize#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#getVertices#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#getEdges#0;class#AdjacencyMatrixGraph#0" />
+                <element signature="docComment;method#getIndex#0;class#AdjacencyMatrixGraph#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Vertex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
+              <folding>
+                <element signature="docComment;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#bfs#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#dfs#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#traversal#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#dijkstra#0;class#GraphAlgorithms#0" />
+                <element signature="class#4627:4823" />
+                <element signature="e#4741#4742#0" expanded="true" />
+                <element signature="e#4812#4813#0" expanded="true" />
+                <element signature="docComment;method#initializeSingleSource#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#relax#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#floydWarshall#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#prim#0;class#GraphAlgorithms#0" />
+                <element signature="class#8910:9170" />
+                <element signature="docComment;method#kruskal#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#makeSet#0;class#GraphAlgorithms#0" />
+                <element signature="method#makeSet#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#findSet#0;class#GraphAlgorithms#0" />
+                <element signature="method#findSet#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;method#union#0;class#GraphAlgorithms#0" />
+                <element signature="method#union#0;class#GraphAlgorithms#0" />
+                <element signature="docComment;class#subset#0;class#GraphAlgorithms#0" />
+                <element signature="class#subset#0;class#GraphAlgorithms#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/collections/Stack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+              <folding>
+                <element signature="e#635#636#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/collections/CQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+              <folding>
+                <element signature="e#1478#1479#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding>
+                <element signature="method#setStage2#0;class#GraphAlgorithmsTest#0" />
+                <element signature="method#setStage4#0;class#GraphAlgorithmsTest#0" />
+                <element signature="method#setStage5#0;class#GraphAlgorithmsTest#0" />
+                <element signature="e#2564#2594#0" />
+                <element signature="method#bfs#0;class#GraphAlgorithmsTest#0" />
+                <element signature="e#3088#3118#0" />
+                <element signature="e#3612#3642#0" />
+                <element signature="method#dijkstra#0;class#GraphAlgorithmsTest#0" />
+                <element signature="e#4505#4510#0" />
+                <element signature="method#floydWarshall#0;class#GraphAlgorithmsTest#0" />
+                <element signature="e#6051#6056#0" />
+                <element signature="method#prim#0;class#GraphAlgorithmsTest#0" />
+                <element signature="e#6810#6815#0" />
               </folding>
             </state>
           </provider>
@@ -80,6 +262,7 @@
       <find>areco</find>
       <find>verte</find>
       <find>Vertex</find>
+      <find>MIN</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -107,7 +290,6 @@
         <option value="$PROJECT_DIR$/src/model/graph/graph/GraphAlgorithms.java" />
         <option value="$PROJECT_DIR$/src/collections/CQueue.java" />
         <option value="$PROJECT_DIR$/src/collections/ICollection.java" />
-        <option value="$PROJECT_DIR$/src/collections/Stack.java" />
         <option value="$PROJECT_DIR$/src/model/test.java" />
         <option value="$PROJECT_DIR$/src/model/Edge.java" />
         <option value="$PROJECT_DIR$/src/model/Vertex.java" />
@@ -115,21 +297,22 @@
         <option value="$PROJECT_DIR$/src/exceptions/ElementNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/exceptions/ElementAlreadyPresentException.java" />
         <option value="$PROJECT_DIR$/src/exceptions/WrongEdgeTypeException.java" />
-        <option value="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" />
-        <option value="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" />
         <option value="$PROJECT_DIR$/src/exceptions/WrongGraphType.java" />
-        <option value="$PROJECT_DIR$/src/model/IGraph.java" />
         <option value="$PROJECT_DIR$/test/model/IGraphTest.java" />
-        <option value="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" />
+        <option value="$PROJECT_DIR$/src/model/IGraph.java" />
         <option value="$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java" />
+        <option value="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" />
+        <option value="$PROJECT_DIR$/src/collections/Stack.java" />
+        <option value="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" />
         <option value="$PROJECT_DIR$/src/model/GraphAlgorithms.java" />
         <option value="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" />
+        <option value="$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="34" />
-    <option name="width" value="683" />
+    <option name="width" value="800" />
     <option name="height" value="866" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -186,13 +369,13 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574552967915" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574718904503" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -222,6 +405,95 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.AdjacencyListGraphTest">
+    <configuration name="AdjacencyListGraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.AdjacencyListGraphTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdjacencyMatrixGraphTest.weightMatrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.AdjacencyMatrixGraphTest" />
+      <option name="METHOD_NAME" value="weightMatrix" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphAlgorithmsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.GraphAlgorithmsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphAlgorithmsTest.dfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.GraphAlgorithmsTest" />
+      <option name="METHOD_NAME" value="dfs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphAlgorithmsTest.kruskal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.GraphAlgorithmsTest" />
+      <option name="METHOD_NAME" value="kruskal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AdjacencyListGraphTest" />
+        <item itemvalue="JUnit.AdjacencyMatrixGraphTest.weightMatrix" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest.kruskal" />
+        <item itemvalue="JUnit.GraphAlgorithmsTest.dfs" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -235,6 +507,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="GraphAlgorithmsTest - 2019.11.25 at 16h 31m 59s.xml">
+      <configuration name="GraphAlgorithmsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_dfs - 2019.11.25 at 16h 32m 04s.xml">
+      <configuration name="GraphAlgorithmsTest.dfs" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_dfs - 2019.11.25 at 16h 32m 20s.xml">
+      <configuration name="GraphAlgorithmsTest.dfs" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 32m 35s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 42m 22s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 42m 45s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 43m 37s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 44m 38s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest_kruskal - 2019.11.25 at 16h 45m 15s.xml">
+      <configuration name="GraphAlgorithmsTest.kruskal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GraphAlgorithmsTest - 2019.11.25 at 16h 45m 37s.xml">
+      <configuration name="GraphAlgorithmsTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1600" height="866" extended-state="6" />
     <editor active="true" />
@@ -245,18 +549,18 @@
       <window_info id="simpleUML" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.13320464" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.06949807" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Analyze Dataflow to" order="0" weight="0.32882273" />
-      <window_info anchor="bottom" id="Messages" order="1" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32882273" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32746956" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" weight="0.327654" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3604194" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.35994586" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.32070366" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3991881" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -270,6 +574,38 @@
       <window_info anchor="right" id="Ant Build" order="6" weight="0.24967825" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="simpleUML" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.13320464" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info id="Learn" order="8" />
+      <window_info anchor="bottom" id="Analyze Dataflow to" order="0" weight="0.32882273" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32882273" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32746956" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" weight="0.327654" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.35994586" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.29228687" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3991881" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32882273" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24967825" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -281,17 +617,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="1602" column="28" lean-forward="true" selection-start-line="1602" selection-start-column="28" selection-end-line="1602" selection-end-column="28" />
-          <folding>
-            <element signature="e#52232#52233#0" expanded="true" />
-            <element signature="e#52271#52272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StrictMath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -300,13 +625,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Algorithms.java" />
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -362,13 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
           <caret line="190" column="9" lean-forward="true" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="310" column="12" selection-start-line="310" selection-start-column="12" selection-end-line="310" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -437,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Edge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -459,20 +763,6 @@
             <element signature="e#201#202#0" expanded="true" />
             <element signature="e#231#232#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/collections/Stack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/collections/CQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -502,99 +792,109 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/model/IGraphTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/exceptions/ElementAlreadyPresentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/AdjacencyListGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="480">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#AdjacencyListGraph#0" />
             <element signature="docComment;field#vertices#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;field#adjacencyLists#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;field#isDirected#0;class#AdjacencyListGraph#0" />
+            <element signature="docComment;field#isWeighted#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#AdjacencyListGraph#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#AdjacencyListGraph#1;class#AdjacencyListGraph#0" />
-            <element signature="method#AdjacencyListGraph#1;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#initialize#0;class#AdjacencyListGraph#0" />
-            <element signature="method#initialize#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#addVertex#0;class#AdjacencyListGraph#0" />
             <element signature="method#addVertex#0;class#AdjacencyListGraph#0" />
-            <element signature="e#2140#2714#1" />
+            <element signature="e#2036#2610#1" />
             <element signature="docComment;method#searchVertex#0;class#AdjacencyListGraph#0" />
-            <element signature="n#!!block;n#searchVertex#0;n#AdjacencyListGraph#0" />
             <element signature="docComment;method#addEdge#0;class#AdjacencyListGraph#0" />
             <element signature="method#addEdge#0;class#AdjacencyListGraph#0" />
-            <element signature="e#3377#3482#1" />
-            <element signature="e#3488#3547#1" />
+            <element signature="e#3306#3411#1" />
+            <element signature="e#3417#3476#1" />
             <element signature="docComment;method#addEdge#1;class#AdjacencyListGraph#0" />
             <element signature="method#addEdge#1;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#removeVertex#0;class#AdjacencyListGraph#0" />
-            <element signature="e#4120#4158#0" />
+            <element signature="e#4086#4124#0" />
             <element signature="method#removeVertex#0;class#AdjacencyListGraph#0" />
-            <element signature="e#4326#4825#1" />
-            <element signature="e#4605#4708#1" />
-            <element signature="e#4831#4868#1" />
+            <element signature="e#4292#4791#1" />
+            <element signature="e#4571#4674#1" />
+            <element signature="e#4797#4834#1" />
             <element signature="docComment;method#removeEdge#0;class#AdjacencyListGraph#0" />
             <element signature="method#removeEdge#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#vertexAdjacent#0;class#AdjacencyListGraph#0" />
             <element signature="method#vertexAdjacent#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#areConnected#0;class#AdjacencyListGraph#0" />
             <element signature="method#areConnected#0;class#AdjacencyListGraph#0" />
-            <element signature="e#5816#5908#0" />
-            <element signature="e#6020#6155#1" />
-            <element signature="e#6161#6367#1" />
+            <element signature="e#5850#5942#0" />
+            <element signature="e#6054#6189#1" />
+            <element signature="e#6195#6401#1" />
             <element signature="docComment;method#weightMatrix#0;class#AdjacencyListGraph#0" />
             <element signature="method#weightMatrix#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#isDirected#0;class#AdjacencyListGraph#0" />
             <element signature="method#isDirected#0;class#AdjacencyListGraph#0" />
-            <element signature="e#6711#6720#0" />
+            <element signature="docComment;method#isWeighted#0;class#AdjacencyListGraph#0" />
+            <element signature="e#6895#6904#0" />
             <element signature="docComment;method#getIndex#0;class#AdjacencyListGraph#0" />
             <element signature="method#getIndex#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#getVertexSize#0;class#AdjacencyListGraph#0" />
             <element signature="docComment;method#getVertices#0;class#AdjacencyListGraph#0" />
-            <element signature="method#getVertices#0;class#AdjacencyListGraph#0" />
+            <element signature="n#!!block;n#getVertices#0;n#AdjacencyListGraph#0" />
             <element signature="docComment;method#getEdges#0;class#AdjacencyListGraph#0" />
-            <marker date="1573527545604" expanded="false" signature="6761:6951" ph="..." />
+            <marker date="1574636140734" expanded="false" signature="7023:7213" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="293">
+          <caret line="1392" column="25" selection-start-line="1392" selection-start-column="25" selection-end-line="1392" selection-end-column="25" />
+          <folding>
+            <element signature="e#52232#52233#0" expanded="true" />
+            <element signature="e#52271#52272#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Collection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="158">
+          <caret line="160" column="12" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/collections/CQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1841#1842#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#2785#2786#0" expanded="true" />
-            <element signature="e#2821#2822#0" expanded="true" />
-            <element signature="e#12918#12919#0" expanded="true" />
-            <element signature="e#12953#12954#0" expanded="true" />
-            <element signature="e#13124#13125#0" expanded="true" />
-            <element signature="e#13157#13158#0" expanded="true" />
-            <element signature="e#13318#13319#0" expanded="true" />
-            <element signature="e#13356#13357#0" expanded="true" />
-            <element signature="e#13668#13669#0" expanded="true" />
-            <element signature="e#13696#13697#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/IGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        <state relative-caret-position="150">
+          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;class#IGraph#0" />
             <element signature="docComment;method#addVertex#0;class#IGraph#0" />
             <element signature="docComment;method#addEdge#0;class#IGraph#0" />
             <element signature="docComment;method#addEdge#1;class#IGraph#0" />
@@ -610,47 +910,179 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/exceptions/ElementAlreadyPresentException.java">
+    <entry file="file://$PROJECT_DIR$/src/collections/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="315">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#635#636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="334" column="50" selection-start-line="334" selection-start-column="50" selection-end-line="334" selection-end-column="50" />
+          <folding>
+            <element signature="docComment;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#DEFAULT_CAPACITY#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#GROWTH_FACTOR#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#size#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#isDirected#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#isWeighted#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#adjacencyMatrix#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#weightMatrix#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#vertices#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#verticesIndices#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#edges#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;field#emptySlots#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#AdjacencyMatrixGraph#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#AdjacencyMatrixGraph#1;class#AdjacencyMatrixGraph#0" />
+            <element signature="method#AdjacencyMatrixGraph#1;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#AdjacencyMatrixGraph#2;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#AdjacencyMatrixGraph#3;class#AdjacencyMatrixGraph#0" />
+            <element signature="method#AdjacencyMatrixGraph#3;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#initialize#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#addVertex#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#4315#4365#0" />
+            <element signature="e#7342#7574#1" />
+            <element signature="docComment;method#addEdge#1;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#8697#8929#1" />
+            <element signature="docComment;method#removeVertex#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="method#removeVertex#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#9356#10179#1" />
+            <element signature="e#9525#9726#1" />
+            <element signature="e#9770#9946#1" />
+            <element signature="e#9990#10169#1" />
+            <element signature="docComment;method#removeEdge#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="method#removeEdge#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#10857#11679#1" />
+            <element signature="e#10903#11669#1" />
+            <element signature="e#11068#11193#1" />
+            <element signature="e#11249#11655#1" />
+            <element signature="e#11363#11502#1" />
+            <element signature="e#11685#11929#1" />
+            <element signature="docComment;method#vertexAdjacent#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#12226#12235#0" />
+            <element signature="docComment;method#areConnected#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="method#areConnected#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="e#13533#13656#1" />
+            <element signature="e#13662#13906#1" />
+            <element signature="docComment;method#weightMatrix#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#isDirected#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#isWeighted#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#getVertexSize#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#getVertices#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#getEdges#0;class#AdjacencyMatrixGraph#0" />
+            <element signature="docComment;method#getIndex#0;class#AdjacencyMatrixGraph#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/GraphAlgorithms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+        <state relative-caret-position="195">
+          <caret line="265" lean-forward="true" selection-start-line="265" selection-end-line="265" />
           <folding>
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#366#396#0" expanded="true" />
-            <element signature="e#1074#1104#0" expanded="true" />
-            <element signature="e#1790#1820#0" expanded="true" />
-            <element signature="e#2505#2535#0" expanded="true" />
+            <element signature="docComment;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#bfs#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#dfs#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#traversal#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#dijkstra#0;class#GraphAlgorithms#0" />
+            <element signature="class#4627:4823" />
+            <element signature="e#4741#4742#0" expanded="true" />
+            <element signature="e#4812#4813#0" expanded="true" />
+            <element signature="docComment;method#initializeSingleSource#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#relax#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#floydWarshall#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#prim#0;class#GraphAlgorithms#0" />
+            <element signature="class#8910:9170" />
+            <element signature="docComment;method#kruskal#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#makeSet#0;class#GraphAlgorithms#0" />
+            <element signature="method#makeSet#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#findSet#0;class#GraphAlgorithms#0" />
+            <element signature="method#findSet#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;method#union#0;class#GraphAlgorithms#0" />
+            <element signature="method#union#0;class#GraphAlgorithms#0" />
+            <element signature="docComment;class#subset#0;class#GraphAlgorithms#0" />
+            <element signature="class#subset#0;class#GraphAlgorithms#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+        <state relative-caret-position="255">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#160#161#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#368#398#0" expanded="true" />
-            <element signature="e#1083#1113#0" expanded="true" />
-            <element signature="e#1806#1836#0" expanded="true" />
-            <element signature="e#2528#2558#0" expanded="true" />
+            <element signature="method#setStage2#0;class#GraphAlgorithmsTest#0" />
+            <element signature="method#setStage4#0;class#GraphAlgorithmsTest#0" />
+            <element signature="method#setStage5#0;class#GraphAlgorithmsTest#0" />
+            <element signature="e#2564#2594#0" />
+            <element signature="method#bfs#0;class#GraphAlgorithmsTest#0" />
+            <element signature="e#3088#3118#0" />
+            <element signature="e#3612#3642#0" />
+            <element signature="method#dijkstra#0;class#GraphAlgorithmsTest#0" />
+            <element signature="e#4505#4510#0" />
+            <element signature="method#floydWarshall#0;class#GraphAlgorithmsTest#0" />
+            <element signature="e#6051#6056#0" />
+            <element signature="method#prim#0;class#GraphAlgorithmsTest#0" />
+            <element signature="e#6810#6815#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyListGraphTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/model/AdjacencyMatrixGraphTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="190" column="112" lean-forward="true" selection-start-line="190" selection-start-column="112" selection-end-line="190" selection-end-column="112" />
+          <folding>
+            <element signature="method#setStage2#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#setStage3#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#setStage4#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#setStage5#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#setStage6#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#2891#2896#0" />
+            <element signature="method#addVertex#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#3258#3263#0" />
+            <element signature="method#addEdge#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#4093#4098#0" />
+            <element signature="method#removeVertex#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#4420#4425#0" />
+            <element signature="method#removeEdge#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#5013#5018#0" />
+            <element signature="method#vertexAdjacent#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#5520#5525#0" />
+            <element signature="method#areConnected#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#isDirected#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#getVertexSize#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#7951#7956#0" />
+            <element signature="method#getVertices#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="method#getEdges#0;class#AdjacencyMatrixGraphTest#0" />
+            <element signature="e#8577#8582#0" />
+            <element signature="method#getIndex#0;class#AdjacencyMatrixGraphTest#0" />
           </folding>
         </state>
       </provider>

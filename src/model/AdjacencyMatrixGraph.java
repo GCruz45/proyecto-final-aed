@@ -126,7 +126,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         isWeighted = false;
         size = 0;
         adjacencyMatrix = new double[capacity][capacity];
+        weightMatrix = new double[capacity][capacity];
         vertices = new HashMap<>();
+        verticesIndices = new HashMap<>();
         emptySlots = new TreeSet<>();
         edges = new ArrayList<>();
     }
@@ -141,9 +143,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @SuppressWarnings("ConstantConditions, unchecked")
     @Override
     public boolean addVertex(V u) throws ElementAlreadyPresentException {
-        boolean added = false;
+        boolean added;
         int index;
-        if (verticesIndices.get(u) != null) {
+        if (verticesIndices.get(u) == null) {
             if (emptySlots.isEmpty()) {//No reusable rows/columns in the matrix
                 if (size == adjacencyMatrix.length) {//Needs to initialize a bigger array
                     double[][] placeHolder = adjacencyMatrix;
@@ -179,7 +181,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             }
             weightMatrix[index][index] = 0.0;
             added = true;
-        }
+        } else
+            throw new ElementAlreadyPresentException("Element is already present");
         return added;
     }
 
@@ -194,20 +197,23 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
-        if (!isWeighted)
+        if (isWeighted)
             throw new WrongEdgeTypeException("Tried to add an unweighted edge to a weighted graph.");
-        boolean added = false;
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
-            added = true;
             edges.add(new Edge(x, y));
             adjacencyMatrix[x][y] = 1;
             if (!isDirected) {
                 adjacencyMatrix[y][x] = 1;
             }
+        } else {
+            if (x == null)
+                throw new ElementNotFoundException("First element not found in graph");
+            else
+                throw new ElementNotFoundException("Second element not found in graph");
         }
-        return added;
+        return true;
     }
 
     /**
@@ -224,11 +230,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {//TODO: Modificar para usar ElementNotfound en vez del if()
         if (!isWeighted)
             throw new WrongEdgeTypeException("Tried to add a weighted edge to an unweighted graph.");
-        boolean added = false;
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
-            added = true;
             edges.add(new Edge(x, y, w));
             adjacencyMatrix[x][y] = 1;
             weightMatrix[x][y] = w;
@@ -236,8 +240,13 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                 adjacencyMatrix[y][x] = 1;
                 weightMatrix[y][x] = w;
             }
+        } else {
+            if (x == null)
+                throw new ElementNotFoundException("First element not found in graph");
+            else
+                throw new ElementNotFoundException("Second element not found in graph");
         }
-        return added;
+        return true;
     }
 
     /**
@@ -249,7 +258,6 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean removeVertex(V u) throws ElementNotFoundException {
-        boolean removed = false;
         Integer position = verticesIndices.get(u);
         if (position != null) {
             vertices.remove(position);
@@ -262,15 +270,15 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             }
             for (int i = 0; i < size; i++) {//Removes from its row position in both matrices.
                 adjacencyMatrix[position][i] = 0;
-                weightMatrix[position][i] = Double.MIN_VALUE;
+                weightMatrix[position][i] = Double.MAX_VALUE;
             }
             for (int i = 0; i < size; i++) {//Removes from its column position in both matrices.
                 adjacencyMatrix[i][position] = 0;
-                weightMatrix[i][position] = Double.MIN_VALUE;
+                weightMatrix[i][position] = Double.MAX_VALUE;
             }
-            removed = true;
-        }
-        return removed;
+        } else
+            throw new ElementNotFoundException("Element is not in the graph");
+        return true;
     }
 
     /**
@@ -288,21 +296,28 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
         if (x != null && y != null) {
-            removed = true;
-            adjacencyMatrix[x][y] = 0;
-            weightMatrix[x][y] = Double.MIN_VALUE;
-            if (!isDirected) {
-                adjacencyMatrix[y][x] = 0;
-                weightMatrix[y][x] = Double.MIN_VALUE;
-            }
-            for (int i = 0; i < edges.size(); i++) {//Removes from edges list.
-                Edge toRemove = edges.get(i);
-                if (isDirected) {
-                    if (toRemove.u == x && toRemove.v == y)
+            if (adjacencyMatrix[x][y] != 0) {
+                removed = true;
+                adjacencyMatrix[x][y] = 0;
+                weightMatrix[x][y] = Double.MIN_VALUE;
+                if (!isDirected) {
+                    adjacencyMatrix[y][x] = 0;
+                    weightMatrix[y][x] = Double.MIN_VALUE;
+                }
+                for (int i = 0; i < edges.size(); i++) {//Removes from edges list.
+                    Edge toRemove = edges.get(i);
+                    if (isDirected) {
+                        if (toRemove.u == x && toRemove.v == y)
+                            edges.remove(toRemove);
+                    } else if ((toRemove.u == x && toRemove.v == y) || (toRemove.u == y && toRemove.v == x))
                         edges.remove(toRemove);
-                } else if ((toRemove.u == x && toRemove.v == y) || (toRemove.u == y && toRemove.v == x))
-                    edges.remove(toRemove);
+                }
             }
+        } else {
+            if (x == null)
+                throw new ElementNotFoundException("First parameter was not found in graph");
+            else
+                throw new ElementNotFoundException("Second parameter was not found in graph");
         }
         return removed;
     }
@@ -318,15 +333,14 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @SuppressWarnings("unchecked")
     public List<V> vertexAdjacent(V v) throws ElementNotFoundException {
         Integer position = verticesIndices.get(v);
-        List<V> adjacentVertices = null;
+        List<V> adjacentVertices;
         if (position != null) {
             adjacentVertices = new LinkedList<>();
-            for (int i = 0; i < size; i++) {
-                if (adjacencyMatrix[position][i] == 1) {
+            for (int i = 0; i < size; i++)
+                if (adjacencyMatrix[position][i] == 1)
                     adjacentVertices.add((V) vertices.get(i).info);
-                }
-            }
-        }
+        } else
+            throw new ElementNotFoundException("Parameter not found in graph");
         return adjacentVertices;
     }
 
@@ -348,8 +362,12 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         if (x != null && y != null) {
             return adjacencyMatrix[x][y] == 1;
             // this returns if index connected and directed to v
-        } else
-            return false;
+        } else {
+            if (x == null)
+                throw new ElementNotFoundException("First parameter was not found in graph");
+            else
+                throw new ElementNotFoundException("Second parameter was not found in graph");
+        }
     }
 
     /**
@@ -374,24 +392,33 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
+     * Returns whether the graph is weighted.
+     *
+     * @return true if and only if graph is weighted
+     */
+    @Override
+    public boolean isWeighted() {
+        return isWeighted;
+    }
+
+    /**
      * Gives the amount of vertices in the graph.
      *
      * @return an int with said amount.
      */
     @Override
     public int getVertexSize() {
-        return vertices.size();
+        return size;
     }
 
     /**
      * TODO
      *
      * @return
-     * @throws ElementNotFoundException
      */
     @Override
-    public Map<V, Integer> getVertices() throws ElementNotFoundException {
-        return null;
+    public Map<V, Integer> getVertices() {
+        return verticesIndices;
     }
 
     /**
@@ -413,6 +440,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     @Override
     public int getIndex(V u) throws ElementNotFoundException {
-        return verticesIndices.get(u) != null ? verticesIndices.get(u) : -1;
+        if (verticesIndices.get(u) == null)
+            throw new ElementNotFoundException("Parameter not found in graph");
+        return verticesIndices.get(u);
     }
 }

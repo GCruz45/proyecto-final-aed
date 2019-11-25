@@ -14,6 +14,7 @@ import java.util.Map;
  * @param <V> Abstract data type which represents an object from a natural problem that is going to be modeled as a vertex in a graph representation of the problem
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
+ * TODO: Mencionar que no admite pseudografos.
  */
 public interface IGraph<V> {
 
@@ -89,6 +90,13 @@ public interface IGraph<V> {
      * @return True if the graph is directed or false if it isn't
      */
     boolean isDirected();
+
+    /**
+     * TODO
+     *
+     * @return True if the graph is weighted or false if it isn't
+     */
+    boolean isWeighted();
 
     /**
      * TODO
