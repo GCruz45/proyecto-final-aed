@@ -365,7 +365,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public ArrayList<Edge> getEdges() {
+    public Map<V, List<Map<V, Double>>> getEdges() {
         return null;
     }
 }

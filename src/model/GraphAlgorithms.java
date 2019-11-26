@@ -50,10 +50,10 @@ public class GraphAlgorithms {
      * @param u   The vertex from which the traversal will begin.
      * @param ds  The data structure to be used in this traversal. Either a Stack for a DFS or a CQueue for BFS.<br>
      *            <pre> ds Must be empty.
-     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @return A List with the resulting traversal performed on the given graph from the given vertex.
+     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @return A List with the resulting traversal performed on the given graph from the given vertex.
      */
     private static <V> List<V> traversal(IGraph<V> g, V u, ICollection<V> ds) throws ElementNotFoundException {
-        if (g.getVertices().get(u)==null)
+        if (g.getVertices().get(u) == null)
             throw new ElementNotFoundException("Parameter not found in graph");
 
         List<V> trav = new ArrayList<>();
@@ -254,24 +254,30 @@ public class GraphAlgorithms {
      * @param <V>
      * @return
      */
+    @SuppressWarnings("unchecked")
     <V> List<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
         if (g.isDirected())
             throw new WrongGraphTypeException("Graph is not undirected");
         List<Edge> vertexSet = new LinkedList<>();
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
-        NavigableSet<Edge> orderedEdges = new TreeSet<>(g.getEdges());
+        NavigableSet<Double[]> orderedEdges = new TreeSet<>(Comparator.comparing(o -> o[2]));
 
         for (int index : g.getVertices().values())
             forest.put(index, makeSet(index));
 
-        Edge lightestEdge;
+        for (int i = 0; i < g.getVertexSize(); i++) {
+            for (int j = 0; j < g.getVertexSize(); j++)
+                if (g.weightMatrix()[i][j] != Double.MAX_VALUE && i != j)
+                    orderedEdges.add(new Double[]{(double) i, (double) j, g.weightMatrix()[i][j]});
+        }
+
+        Double[] lightestEdge;
         while (!orderedEdges.isEmpty()) {
             lightestEdge = orderedEdges.pollFirst();
-            assert lightestEdge != null;//TODO: Necessary?
-            subset subsetOfU = forest.get(lightestEdge.u);
-            subset subsetOfV = forest.get(lightestEdge.v);
+            subset subsetOfU = forest.get(lightestEdge[0].intValue());
+            subset subsetOfV = forest.get(lightestEdge[1].intValue());
             if (findSet(subsetOfU) != findSet(subsetOfV)) {
-                vertexSet.add(lightestEdge);
+                vertexSet.add(new Edge(lightestEdge[0].intValue(), lightestEdge[1].intValue(), lightestEdge[2]));
                 union(subsetOfU, subsetOfV);
             }
         }
