@@ -115,5 +115,5 @@ public interface IGraph<V> {
 
     Map<V, Integer> getVertices();
 
-    ArrayList<Edge> getEdges();
+    Map<V, Map<V, Double>> getEdges();
 }
