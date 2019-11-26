@@ -170,7 +170,7 @@ class AdjacencyMatrixGraphTest {
         assertEquals(v, g.vertexAdjacent(u).get(0));
 
         g.addVertex(newVertex);
-        assertNull(g.vertexAdjacent(newVertex));
+        assertEquals(0, g.vertexAdjacent(newVertex).size());
     }
 
     @Test
@@ -249,7 +249,7 @@ class AdjacencyMatrixGraphTest {
     @Test
     void getEdges() throws ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
         setStage2();
-        assertEquals(g.getEdges().size(), 4);
+        assertEquals(g.getEdges().size(), 5);
     }
 
     @Test

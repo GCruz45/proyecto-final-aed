@@ -2,10 +2,7 @@ package model;
 
 import exceptions.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class models a graph using an Adjacency list
@@ -39,6 +36,16 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     private boolean isWeighted;
 
     /**
+     * TODO
+     */
+    private double[][] weightMatrix;
+
+    /**
+     * TODO
+     */
+    private Map<V, Map<V, Double>> edges;
+
+    /**
      * Basic constructor that is initialized with default values
      */
     public AdjacencyListGraph() {
@@ -66,6 +73,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         isWeighted = false;
         adjacencyLists = new ArrayList<>();
         vertices = new HashMap<>();
+        edges = new HashMap<>();
     }
 
     /**
@@ -115,19 +123,21 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
-        // TODO Auto-generated method stub
-
-        int ValueU = vertices.get(u);
-        int ValueV = vertices.get(v);
-
-        if (!isDirected) {
-            adjacencyLists.get(ValueU).add(v);
-            adjacencyLists.get(ValueV).add(u);
+        if (isWeighted)
+            throw new WrongEdgeTypeException("Tried to add unweighted edge to weighted graph");
+        Integer indexU = vertices.get(u);
+        Integer indexV = vertices.get(v);
+        if (indexU != null && indexV != null) {
+            if (!isDirected)
+                adjacencyLists.get(indexV).add(u);
+            adjacencyLists.get(indexU).add(v);
         } else {
-
-            adjacencyLists.get(ValueU).add(v);
+            if (indexU == null)
+                throw new ElementNotFoundException("First element not found in graph");
+            else
+                throw new ElementNotFoundException("Second element not found in graph");
         }
-        return false;//TODO: Finish implementation
+        return true;
     }
 
     /**
@@ -141,8 +151,21 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
-        // TODO Auto-generated method stub
-        return false;
+        if (!isWeighted)
+            throw new WrongEdgeTypeException("Tried to add weighted edge to unweighted graph");
+        Integer indexU = vertices.get(u);
+        Integer indexV = vertices.get(v);
+        if (indexU != null && indexV != null) {
+            if (!isDirected)
+                adjacencyLists.get(indexV).add(u);
+            adjacencyLists.get(indexU).add(v);
+        } else {
+            if (indexU == null)
+                throw new ElementNotFoundException("First element not found in graph");
+            else
+                throw new ElementNotFoundException("Second element not found in graph");
+        }
+        return true;
     }
 
     /**
@@ -155,7 +178,6 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     @SuppressWarnings("unlikely-arg-type")
     @Override
     public boolean removeVertex(V u) throws ElementNotFoundException {
-
         // first looks if the vertex exists
         if (vertices.containsKey(u)) {
 
@@ -169,12 +191,9 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
 
             // removes the vertex form the map
             vertices.remove(u);
-
-            return true;
-
-        } else {
-            return false;
-        }
+        } else
+            throw new ElementNotFoundException("Parameter not present in graph");
+        return true;
     }
 
     /**
@@ -187,9 +206,31 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean removeEdge(V u, V v) throws ElementNotFoundException {
-        // TODO Auto-generated method stub
-        return false;
-    }//TODO: error por no contener a u, v o el edge.
+        if (vertices.get(u) == null)
+            throw new ElementNotFoundException("First parameter does not belong to graph");
+        else if (vertices.get(u) == null)
+            throw new ElementNotFoundException("Second parameter does not belong to graph");
+
+        boolean foundEdge = false;
+
+        List<V> currentVertex = adjacencyLists.get(vertices.get(u));
+        for (V adjacentVertex : currentVertex)
+            if (adjacentVertex.equals(v)) {
+                currentVertex.remove(adjacentVertex);
+                foundEdge = true;
+            }
+        currentVertex = adjacencyLists.get(vertices.get(v));
+        for (V adjacentVertex : currentVertex)
+            if (adjacentVertex.equals(v)) {
+                currentVertex.remove(adjacentVertex);
+                foundEdge = true;
+            }
+
+        if (!foundEdge)
+            throw new ElementNotFoundException("No edge was found between the given vertices");
+
+        return true;
+    }
 
     /**
      * TODO
@@ -200,8 +241,10 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public List<V> vertexAdjacent(V u) throws ElementNotFoundException {
-        // TODO Auto-generated method stub
-        return null;
+        if (vertices.get(u) == null)
+            throw new ElementNotFoundException("Given vertex not found in graph");
+
+        return adjacencyLists.get(vertices.get(u));
     }
 
     /**
@@ -214,21 +257,24 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean areConnected(V u, V v) throws ElementNotFoundException {
+        Integer indexU = vertices.get(u);
+        Integer indexV = vertices.get(v);
 
-        int uValor = vertices.get(u);
-        int vValor = vertices.get(v);
-
-//		return adjacencyLists.get(uValor).contains(v) || adjacencyLists.get(uValor).contains(v);
+//		return adjacencyLists.get(indexU).contains(v) || adjacencyLists.get(indexU).contains(v);
 //		This return exists in case there is no need of being specific about the direction
-
-        if (isDirected) {
-            return adjacencyLists.get(uValor).contains(v);
-            // this returns if index connected and directed to v
-        } else {
-            return adjacencyLists.get(uValor).contains(v) && adjacencyLists.get(vValor).contains(u);
+        if (indexU != null && indexV != null) {
+            if (isDirected)
+                return adjacencyLists.get(indexU).contains(v);
+                // this returns if index connected and directed to v
+            else
+                return adjacencyLists.get(indexU).contains(v) && adjacencyLists.get(indexV).contains(u);
             // in case the graph is not connected then both should be connected to each other
+        } else {
+            if (indexU == null)
+                throw new ElementNotFoundException("First element not found in graph");
+            else
+                throw new ElementNotFoundException("Second element not found in graph");
         }
-
     }
 
     /**
@@ -238,8 +284,19 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public double[][] weightMatrix() {
-        // TODO Auto-generated method stub
-        return null;
+        int size = adjacencyLists.size();
+        weightMatrix = new double[size][size];
+
+        //Fills the weight matrix with infinity in every cell.
+        for (int i = 0; i < size; i++)
+            Arrays.fill(weightMatrix[i], Double.MAX_VALUE);
+        //TODO:
+        if (isWeighted)
+            for (List<V> vertex:adjacencyLists)
+                for (V adjacentVertex: vertex)
+                    weightMatrix[adjacencyLists.indexOf(vertex)][adjacencyLists.indexOf(adjacentVertex)] = edges.get(vertex).get(adjacentVertex);
+
+        return weightMatrix;
     }
 
     /**
@@ -249,17 +306,17 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public boolean isDirected() {
-        // TODO Auto-generated method stub
         return isDirected;
     }
 
     /**
      * TODO
+     *
      * @return
      */
     @Override
-    public boolean isWeighted() {//TODO: Implement
-        return true;
+    public boolean isWeighted() {
+        return isWeighted;
     }
 
 //    /**
@@ -276,7 +333,10 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      */
     @Override
     public int getIndex(V u) throws ElementNotFoundException {
-        return vertices.get(u);
+        Integer indexU = vertices.get(u);
+        if (indexU == null)
+            throw new ElementNotFoundException("Given vertex was not found in graph");
+        return indexU;
     }
 
     /**
@@ -295,7 +355,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public Map<V, Integer> getVertices(){
+    public Map<V, Integer> getVertices() {
         return vertices;
     }
 
@@ -305,7 +365,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
      * @return
      */
     @Override
-    public ArrayList<Edge> getEdges() {
+    public Map<V, List<Map<V, Double>>> getEdges() {
         return null;
     }
 }

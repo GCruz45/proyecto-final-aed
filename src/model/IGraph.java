@@ -4,7 +4,6 @@ import exceptions.ElementAlreadyPresentException;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -115,5 +114,5 @@ public interface IGraph<V> {
 
     Map<V, Integer> getVertices();
 
-    ArrayList<Edge> getEdges();
+    Map<V, List<Map<V, Double>>> getEdges();
 }
