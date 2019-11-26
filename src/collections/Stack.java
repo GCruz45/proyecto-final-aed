@@ -33,5 +33,4 @@ public class Stack<T> implements ICollection<T> {//TODO: Contracts
     public void addAll(Collection<T> c) {
         myStack.addAll(c);
     }
-
 }

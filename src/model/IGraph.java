@@ -4,7 +4,6 @@ import exceptions.ElementAlreadyPresentException;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +13,7 @@ import java.util.Map;
  * @param <V> Abstract data type which represents an object from a natural problem that is going to be modeled as a vertex in a graph representation of the problem
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
+ * TODO: Mencionar que no admite pseudografos.
  */
 public interface IGraph<V> {
 
@@ -93,6 +93,13 @@ public interface IGraph<V> {
     /**
      * TODO
      *
+     * @return True if the graph is weighted or false if it isn't
+     */
+    boolean isWeighted();
+
+    /**
+     * TODO
+     *
      * @param u
      * @return
      */
@@ -107,5 +114,5 @@ public interface IGraph<V> {
 
     Map<V, Integer> getVertices();
 
-    ArrayList<Edge> getEdges();
+    Map<V, List<Map<V, Double>>> getEdges();
 }
