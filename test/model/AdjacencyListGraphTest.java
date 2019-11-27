@@ -1,8 +1,6 @@
 package model;
 
-import exceptions.ElementAlreadyPresentException;
-import exceptions.ElementNotFoundException;
-import exceptions.WrongEdgeTypeException;
+import exceptions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
