@@ -53,5 +53,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="gs-algo-1" level="project" />
   </component>
 </module>
