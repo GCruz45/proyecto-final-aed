@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="Added and finished some of the classes to be used in the online virtual judge.">
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main$Graph.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contests/Babel/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contests/DegreesOfSeparation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f798ec0f-1606-415c-892b-60fbe4a60551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/proyecto-final-aed.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyListGraphTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyMatrixGraphTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/GraphAlgorithmsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main$Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main$Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyListGraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyListGraphTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contests/DegreesOfSeparation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contests/DegreesOfSeparation/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,15 +48,18 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Jhon Mora &lt;jhonedmora@gmail.com&gt;" />
         <option value="Jhon Edward Mora Mora &lt;jhonedmora@gmail.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1UBFvVdWo0YaB19t36cVwdx5yyc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -102,7 +102,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="contests.DegreesOfSeparation.Main" />
       <module name="proyecto-final-aed" />
       <extension name="coverage">
@@ -179,7 +179,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AdjacencyListGraphTest" />
         <item itemvalue="JUnit.AdjacencyMatrixGraphTest" />
         <item itemvalue="JUnit.GraphAlgorithmsTest.kruskal" />
@@ -208,6 +207,14 @@
       <option name="presentableId" value="Default" />
       <updated>1572974981054</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added and finished some of the classes to be used in the online virtual judge.">
+      <created>1574817630660</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574817630675</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -271,7 +278,9 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

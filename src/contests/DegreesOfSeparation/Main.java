@@ -10,17 +10,18 @@ public class Main {
     private static BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException{
-        String input = "";
+        String input = rd.readLine();;
         String output = "";
         int count = 1;
         while(!input.equals("0 0")) {
-            input = rd.readLine();
             Graph g = new Graph(input);
             String[] network = rd.readLine().split(" ");
-            for(int i = 0; i<network.length; i++){
+            for(int i = 0; i<network.length-1; i+=2){
                 g.addEdge(network[i], network[i+1]);
             }
-            output += "Network " + count + g.returnSolution();
+            output += "Network " + count + g.returnSolution()+"\n";
+            count++;
+            input = rd.readLine();
         }
         System.out.println(output);
     }
@@ -33,7 +34,7 @@ public class Main {
         private int[][] weightMatrix;
 
         /**Representative value to be used when two vertices in the graph are not connected.*/
-        final static int INFINITY = -1;
+        final static int INFINITY = 0;
 
         /**Creates a new Graph represented in a weight matrix. The input String is the number of vertices this graph has.*/
         Graph(String size){
@@ -59,6 +60,7 @@ public class Main {
             }
             //Connect both vertexes by assigning their weight in the matrix to 1.
             weightMatrix[vertices.indexOf(u)][vertices.indexOf(v)] = 1;
+            weightMatrix[vertices.indexOf(v)][vertices.indexOf(u)] = 1;
         }
 
         /**
@@ -82,18 +84,39 @@ public class Main {
         }
 
         String returnSolution(){
+            System.out.println("Pre algorithm Matrix:\n" + printMatrix(weightMatrix));
             int[][] matrix = solve();
+            System.out.println("Post algorithm Matrix:\n" + printMatrix(matrix));
             int max = 0;
-            for (int[] ints : matrix) {
-                for (int j = 0; j < matrix.length; j++) {
-                    if (ints[j] != INFINITY) {
-                        if (max < ints[j])
-                            max = ints[j];
+            for (int i = 0; i<matrix.length; i++) {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    if (matrix[i][j] != INFINITY) {
+                        if (max < matrix[i][j])
+                            max = matrix[i][j];
                     } else
                         return ": DISCONNECTED";
                 }
             }
             return ": "+max;
         }
+    }
+
+    static String printMatrix(int[][] matrix){
+        int n = matrix.length;
+        int m = matrix[0].length;
+        String out1 = "/ ";
+        String out2 = "";
+        for(int i = 0; i<m; i++){
+            out1 += i + " ";
+        }
+
+        for(int i = 0; i<n; i++){
+            out2 += i + " ";
+            for(int j = 0; j<m; j++){
+                out2 += matrix[i][j] + " ";
+            }
+            out2 += "\n";
+        }
+        return out1 + "\n"+out2;
     }
 }
