@@ -155,7 +155,7 @@ class AdjacencyListGraphTest {
         assertThrows(ElementNotFoundException.class, () -> g.removeEdge(u, newVertex));
 
         setStage12();
-        assertFalse(g.removeEdge(u, s));
+        assertThrows(ElementNotFoundException.class, () -> g.removeEdge(u, s));
 
         assertTrue(g.removeEdge(u, v));
     }
@@ -171,7 +171,7 @@ class AdjacencyListGraphTest {
         assertEquals(v, g.vertexAdjacent(u).get(0));
 
         g.addVertex(newVertex);
-        assertNull(g.vertexAdjacent(newVertex));
+        assertEquals(0,g.vertexAdjacent(newVertex).size());
     }
 
     @Test
@@ -192,28 +192,29 @@ class AdjacencyListGraphTest {
     void weightMatrix() throws ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
         setStage11();
 
+        double[][] weightMatrix = g.weightMatrix();
         for (int i = 0; i < g.getVertexSize(); i++)
-            assertEquals(0, g.weightMatrix()[i][i]);
-        assertEquals(0, g.weightMatrix()[0][1]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[0][2]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[0][3]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[0][4]);
-        assertEquals(0, g.weightMatrix()[1][0]);
-        assertEquals(-5, g.weightMatrix()[1][2]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[1][3]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[1][4]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[2][0]);
-        assertEquals(-5, g.weightMatrix()[2][1]);
-        assertEquals(7, g.weightMatrix()[2][3]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[2][4]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[3][0]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[3][1]);
-        assertEquals(7, g.weightMatrix()[3][2]);
-        assertEquals(-3, g.weightMatrix()[3][4]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[4][0]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[4][1]);
-        assertEquals(Double.MAX_VALUE, g.weightMatrix()[4][2]);
-        assertEquals(-3, g.weightMatrix()[4][3]);
+            assertEquals(0, weightMatrix[i][i]);
+        assertEquals(0, weightMatrix[0][1]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[0][2]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[0][3]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[0][4]);
+        assertEquals(0, weightMatrix[1][0]);
+        assertEquals(-5, weightMatrix[1][2]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[1][3]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[1][4]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[2][0]);
+        assertEquals(-5, weightMatrix[2][1]);
+        assertEquals(7, weightMatrix[2][3]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[2][4]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[3][0]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[3][1]);
+        assertEquals(7, weightMatrix[3][2]);
+        assertEquals(-3, weightMatrix[3][4]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[4][0]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[4][1]);
+        assertEquals(Double.MAX_VALUE, weightMatrix[4][2]);
+        assertEquals(-3, weightMatrix[4][3]);
     }
 
     @Test
@@ -250,7 +251,7 @@ class AdjacencyListGraphTest {
     @Test
     void getEdges() throws ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
         setStage8();
-        assertEquals(g.getEdges().size(), 4);
+        assertEquals(5, g.getEdges().size());
     }
 
     @Test

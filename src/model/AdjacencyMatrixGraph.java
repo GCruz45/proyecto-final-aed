@@ -209,6 +209,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             adjacencyMatrix[x][y] = 1;
             if (!isDirected) {
                 adjacencyMatrix[y][x] = 1;
+                Map<V, Double> mapOfU = new HashMap<>();
+                mapOfU.put(u, Double.MAX_VALUE);
+                edges.get(v).add(mapOfU);
             }
         } else {
             if (x == null)
@@ -244,6 +247,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             if (!isDirected) {
                 adjacencyMatrix[y][x] = 1;
                 weightMatrix[y][x] = w;
+                Map<V, Double> mapOfU = new HashMap<>();
+                mapOfU.put(u, w);
+                edges.get(v).add(mapOfU);
             }
         } else {
             if (x == null)
