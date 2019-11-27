@@ -236,6 +236,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
         if (!isWeighted)
             throw new WrongEdgeTypeException("Tried to add a weighted edge to an unweighted graph.");
+
         Integer x = verticesIndices.get(u);
         Integer y = verticesIndices.get(v);
         if (x != null && y != null) {

@@ -180,19 +180,22 @@ public class GraphAlgorithms {
      * @throws WrongGraphTypeException if the given graph is unweighted
      */
     <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
-        if (!g.isWeighted())
+        if (!g.isWeighted()) {
             throw new WrongGraphTypeException("Expected weighted graph");
+        }
 
-        double[][] d = g.weightMatrix();
         int n = g.getVertexSize();
+        double[][] d = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++)
+                d[i][j] = g.weightMatrix()[i][j];
+        }
+
         for (int k = 0; k < n; k++) {
             double[][] dk = new double[n][n];
             for (int j = 0; j < n; j++)
                 for (int i = 0; i < n; i++)
-                    if (d[i][k] != Double.MAX_VALUE || d[k][j] != Double.MAX_VALUE)
-                        dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
-                    else
-                        dk[i][j] = d[i][j];
+                    dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
             d = dk;
         }
         return d;

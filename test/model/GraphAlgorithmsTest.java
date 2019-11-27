@@ -80,6 +80,24 @@ class GraphAlgorithmsTest {
     }
 
     @SuppressWarnings("unchecked")
+    void setStage0() throws ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
+        g = new AdjacencyMatrixGraph(false, true, 5);
+        g.addVertex(u);
+        g.addVertex(v);
+        g.addVertex(s);
+        g.addVertex(vertex4);
+        g.addVertex(vertex5);
+        g.addEdge(u, v, 15);
+        g.addEdge(v, s, 12);
+        g.addEdge(s, vertex4, 3);
+        g.addEdge(vertex4, vertex5, 2);
+
+        g.addEdge(u, s, 11);
+        g.addEdge(v, vertex4, 14);
+        g.addEdge(v, vertex5, 1);
+    }
+
+    @SuppressWarnings("unchecked")
     @Test
     void bfs() throws ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
         setStage3();
@@ -159,6 +177,34 @@ class GraphAlgorithmsTest {
 
         setStage2();
         assertThrows(WrongGraphTypeException.class, () -> algorithmTest.floydWarshall(g));
+
+        setStage0();
+        floydWarshallResult = algorithmTest.floydWarshall(g);
+        assertEquals(0, floydWarshallResult[0][0]);
+        assertEquals(15, floydWarshallResult[0][1]);
+        assertEquals(11, floydWarshallResult[0][2]);
+        assertEquals(14, floydWarshallResult[0][3]);
+        assertEquals(16, floydWarshallResult[0][4]);
+        assertEquals(15, floydWarshallResult[1][0]);
+        assertEquals(0, floydWarshallResult[1][1]);
+        assertEquals(6, floydWarshallResult[1][2]);
+        assertEquals(3, floydWarshallResult[1][3]);
+        assertEquals(1, floydWarshallResult[1][4]);
+        assertEquals(11, floydWarshallResult[2][0]);
+        assertEquals(6, floydWarshallResult[2][1]);
+        assertEquals(0, floydWarshallResult[2][2]);
+        assertEquals(3, floydWarshallResult[2][3]);
+        assertEquals(5, floydWarshallResult[2][4]);
+        assertEquals(14, floydWarshallResult[3][0]);
+        assertEquals(3, floydWarshallResult[3][1]);
+        assertEquals(3, floydWarshallResult[3][2]);
+        assertEquals(0, floydWarshallResult[3][3]);
+        assertEquals(2, floydWarshallResult[3][4]);
+        assertEquals(16, floydWarshallResult[4][0]);
+        assertEquals(1, floydWarshallResult[4][1]);
+        assertEquals(5, floydWarshallResult[4][2]);
+        assertEquals(2, floydWarshallResult[4][3]);
+        assertEquals(0, floydWarshallResult[4][4]);
     }
 
     @Test
