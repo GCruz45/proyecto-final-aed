@@ -22,8 +22,9 @@ public class GraphAlgorithms {
      *
      * @param <V> type that represent a vertex within the graph
      * @param g   graph to traverse
-     * @param u   vertex from which to begin traversal
+     * @param u   vertex from which to begin traversing
      * @return a list whose order follows that of a BFS
+     * @throws ElementNotFoundException if 'u' does not belong to the graph
      */
     <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new CQueue<>());
@@ -34,22 +35,23 @@ public class GraphAlgorithms {
      *
      * @param <V> type that represent a vertex within the graph
      * @param g   graph to traverse
-     * @param u   vertex from which to begin traversal
+     * @param u   vertex from which to begin traversing
      * @return a list whose order follows that of a DFS
+     * @throws ElementNotFoundException if 'u' does not belong to the graph
      */
     <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new Stack<>());
     }
 
     /**
-     * This method will traverse the graph with the given appropriate data structure. This will perform  BFS or DFS, given the case.
+     * This method will traverse the graph using the given -appropriate- data structure.
      *
-     * @param <V> Abstract data type that represent a vertex within the graph
-     * @param g   The graph to be traversed.
-     * @param u   The vertex from which the traversal will begin.
-     * @param ds  The data structure to be used in this traversal. Either a Stack for a DFS or a CQueue for BFS.<br>
-     *            <pre> ds Must be empty.
-     *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @return A List with the resulting traversal performed on the given graph from the given vertex.
+     * @param <V> type that represent a vertex within the graph
+     * @param g   graph to traverse
+     * @param u   vertex from which to begin traversing
+     * @param ds  the data structure to be used in the traversal. Either a Stack for a DFS or a CQueue for BFS
+     * @return a list whose order follows that of the given data structure
+     * @throws ElementNotFoundException if 'u' does not belong to the graph
      */
     private static <V> List<V> traversal(IGraph<V> g, V u, ICollection<V> ds) throws ElementNotFoundException {
         if (g.getVertices().get(u) == null)
@@ -81,12 +83,16 @@ public class GraphAlgorithms {
     }
 
     /**
-     * An algorithm based on Dijkstra's approach to finding the shortest path from a given vertex to all vertices in the graph.
+     * An algorithm based on Dijkstra's approach to finding the shortest path from a given vertex to all vertices in
+     * the graph.
      *
-     * @param <V> Abstract data type that represents a vertex within the graph
-     * @param g   The graph to be traversed
-     * @param s   The vertex where Dijkstra is going to be used
-     * @return A  map with the shortest paths found
+     * @param <V> type that represents a vertex within the graph
+     * @param g   graph to traverse
+     * @param s   vertex from which to begin traversing
+     * @return a matrix of two columns which are both the distance from the origin to 'i' (cell [i][0]) and the
+     * parent of 'i' through which the shortest path is achieved (cell [i][1])
+     * @throws ElementNotFoundException if 's' does not belong to the graph
+     * @throws WrongEdgeTypeException   if a negative edge is found
      */
     <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
         double[][] w = g.weightMatrix();
@@ -120,11 +126,13 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * Auxiliary method of Dijkstra's which checks for illegal, negative edges and sets the default values of
+     * the matrix returned by Dijkstra.
      *
-     * @param indexOfS
-     * @param shortestPath
-     * @param w
+     * @param indexOfS     index used by the graph of the source node
+     * @param shortestPath matrix which is to be returned by Dijkstra
+     * @param w            weight matrix of the graph
+     * @throws WrongEdgeTypeException if a negative edge is found
      */
     private void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
         for (int i = 0; i < w.length; i++) {
@@ -139,20 +147,20 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * Auxiliary method of Dijkstra's which relaxes all edges from vertex 'u'.
      *
-     * @param shortestPath
-     * @param q
-     * @param u
-     * @param indexOfV
-     * @param w
+     * @param shortestPath the temporary solution to Dijkstra. May be modified by this method
+     * @param q            priority queue of edges sorted by their increasing value
+     * @param u            first element of the given priority queue which contains both its index in the graph and the distance
+     *                     to it from the source node
+     * @param indexOfV     index of the vertex whose distance is to be compared
+     * @param w            weight matrix of the graph
      */
     private void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and index exist in the graph.
         int indexOfU = u[0].intValue();
         double suDistance = shortestPath[indexOfU][0];
         double uvDistance = w[indexOfU][indexOfV];
         double svDistance = shortestPath[indexOfV][0];
-        //TODO: Check possible overflow of Double.MAX_VALUE
         if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
             shortestPath[indexOfV][0] = suDistance + uvDistance;
             shortestPath[indexOfV][1] = indexOfU;
@@ -161,11 +169,15 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An algorithm based on the approach by Floyd and Warshall for finding the minimum distance from all nodes in a
+     * graph to every other node. If reaching vertex 'j' from vertex 'i' is not possible, position [i][j] returns
+     * Double.MAX_VALUE.
      *
-     * @param g
-     * @param <V>
-     * @return
+     * @param g   the graph to be queried
+     * @param <V> the type of nodes in the graph
+     * @return a matrix of length 'n' by 'n', where 'n' is the amount of vertices in the graph. Position [i][j] returns the
+     * minimum distance required to traverse the graph from vertex 'i' to vertex 'j'
+     * @throws WrongGraphTypeException if the given graph is unweighted
      */
     <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
         if (!g.isWeighted())
@@ -187,15 +199,19 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An algorithm based on Prim's approach to finding the minimum spanning tree in a connected, undirected graph from
+     * a given source node. Returns an array of int representing the index of the vertex each node must move through to
+     * arrive at source node 's'.
      *
-     * @param g
-     * @param s
-     * @param <V>
-     * @return
+     * @param g   the graph to be queried
+     * @param s   the source node from which to construct the MST
+     * @param <V> the type of nodes in the graph
+     * @return an array of int representing the index of the vertex each node must move through to arrive at source
+     * node 's'.
+     * @throws ElementNotFoundException if node 's' is not in the graph
+     * @throws WrongGraphTypeException  if graph 'g' is directed
      */
     <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphTypeException {
-        //TODO: Update comments.
         if (g.isDirected())
             throw new WrongGraphTypeException("Graph needs to be undirected");
         else if (!g.isWeighted())
@@ -247,16 +263,17 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An algorithm based on Kruskal's approach to building the MST of a graph.
      *
-     * @param g
-     * @param <V>
-     * @return
+     * @param g   the graph whose MST is to be returned
+     * @param <V> the type of node in the graph
+     * @return a list of type Edge which contains information on the starting and ending vertices and its weight
+     * @throws WrongGraphTypeException if graph 'g' is not undirected
      */
-    @SuppressWarnings("unchecked")
-    <V> List<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {//TODO: Se cambio el return type, revisar consecuencias. Assert si es no dirigido.
+    <V> List<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {
         if (g.isDirected())
             throw new WrongGraphTypeException("Graph is not undirected");
+
         List<Edge> vertexSet = new LinkedList<>();
         Map<Integer, subset> forest = new HashMap<>(g.getVertexSize());
         NavigableSet<Double[]> orderedEdges = new TreeSet<>(Comparator.comparing(o -> o[2]));
@@ -284,10 +301,11 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An auxiliary method to Kruskal's approach to building the MST of an undirected graph. Returns a new instance of
+     * the nested class 'subset' which represents a set or tree.
      *
-     * @param index
-     * @return
+     * @param index index of the vertex in the graph that this subset represents
+     * @return a new 'subset' whose only member is the vertex represented by the given index
      */
     private subset makeSet(int index) {
         subset toAdd = new subset();
@@ -298,10 +316,11 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An auxiliary method to Kruskal's approach to building the MST of an undirected graph. Finds the index of the
+     * vertex that acts as the root of the tree of the given subset.
      *
-     * @param s
-     * @return
+     * @param s the subset whose root is to be found
+     * @return the index of the root vertex in the graph
      */
     private int findSet(subset s) {
         int index = -1;
@@ -313,10 +332,11 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * An auxiliary method to Kruskal's approach to building the MST of an undirected graph. Joins the two given
+     * subsets into a single one so that one becomes the parent of the other.
      *
-     * @param u
-     * @param v
+     * @param u one of the subsets to be joined
+     * @param v one of the subsets to be joined
      */
     private void union(subset u, subset v) {
         if (u.rank > v.rank)
@@ -328,7 +348,8 @@ public class GraphAlgorithms {
     }
 
     /**
-     * TODO
+     * Nested class used by Kruskal's approach to building the MST of an undirected graph. It models nodes of a tree
+     * that represent individual sets.
      */
     private class subset {
         subset parent;
