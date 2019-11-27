@@ -26,7 +26,7 @@ public class GraphAlgorithms {
      * @return a list whose order follows that of a BFS
      * @throws ElementNotFoundException if 'u' does not belong to the graph
      */
-    <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new CQueue<>());
     }
 
@@ -39,7 +39,7 @@ public class GraphAlgorithms {
      * @return a list whose order follows that of a DFS
      * @throws ElementNotFoundException if 'u' does not belong to the graph
      */
-    <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
+    public <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new Stack<>());
     }
 
@@ -94,10 +94,10 @@ public class GraphAlgorithms {
      * @throws ElementNotFoundException if 's' does not belong to the graph
      * @throws WrongEdgeTypeException   if a negative edge is found
      */
-    <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
+    public <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
         double[][] w = g.weightMatrix();
-        double[][] shortestPath = new double[w.length][2];
         int logicalSize = g.getVertexSize();
+        double[][] shortestPath = new double[logicalSize][2];
         int indexOfS = g.getIndex(s);
 
         //----------------------------Comienzo segun Cormen----------------------------//
@@ -108,7 +108,7 @@ public class GraphAlgorithms {
                 return weight1[1].compareTo(weight2[1]);
             }
         });
-        for (int i = 0; i < w.length; i++) {
+        for (int i = 0; i < logicalSize; i++) {
             if (indexOfS != i)
                 q.add(new Double[]{(double) i, w[indexOfS][i]});
         }
@@ -118,7 +118,7 @@ public class GraphAlgorithms {
             if (u[1] < 0)
                 throw new WrongEdgeTypeException("Graph contains a negative edge");
             int indexOfU = u[0].intValue();
-            for (int v = 0; v < w.length; v++)
+            for (int v = 0; v < logicalSize; v++)
                 if (w[indexOfU][v] < Double.MAX_VALUE)//u shares and edge with v
                     relax(shortestPath, q, u, v, w);
         }
@@ -135,13 +135,12 @@ public class GraphAlgorithms {
      * @throws WrongEdgeTypeException if a negative edge is found
      */
     private void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
-        for (int i = 0; i < w.length; i++) {
+        for (int i = 0; i < shortestPath.length; i++) {
             if (w[indexOfS][i] < 0.0)
                 throw new WrongEdgeTypeException("Graph contains a negative edge");
             shortestPath[i][0] = w[indexOfS][i];
             shortestPath[i][1] = indexOfS;
         }
-
         shortestPath[indexOfS][0] = 0.0;//Distance from s to s.
         shortestPath[indexOfS][1] = indexOfS;//Predecessor of s.
     }
@@ -161,10 +160,12 @@ public class GraphAlgorithms {
         double suDistance = shortestPath[indexOfU][0];
         double uvDistance = w[indexOfU][indexOfV];
         double svDistance = shortestPath[indexOfV][0];
-        if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
-            shortestPath[indexOfV][0] = suDistance + uvDistance;
-            shortestPath[indexOfV][1] = indexOfU;
-            q.add(new Double[]{(double) indexOfV, shortestPath[indexOfV][0]});
+        if (suDistance < Double.MAX_VALUE && uvDistance < Double.MAX_VALUE) {
+            if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
+                shortestPath[indexOfV][0] = suDistance + uvDistance;
+                shortestPath[indexOfV][1] = indexOfU;
+                q.add(new Double[]{(double) indexOfV, shortestPath[indexOfV][0]});
+            }
         }
     }
 
@@ -179,7 +180,7 @@ public class GraphAlgorithms {
      * minimum distance required to traverse the graph from vertex 'i' to vertex 'j'
      * @throws WrongGraphTypeException if the given graph is unweighted
      */
-    <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
+    public <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
         if (!g.isWeighted()) {
             throw new WrongGraphTypeException("Expected weighted graph");
         }
@@ -214,7 +215,7 @@ public class GraphAlgorithms {
      * @throws ElementNotFoundException if node 's' is not in the graph
      * @throws WrongGraphTypeException  if graph 'g' is directed
      */
-    <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphTypeException {
+    public <V> int[] prim(IGraph<V> g, V s) throws ElementNotFoundException, WrongGraphTypeException {
         if (g.isDirected())
             throw new WrongGraphTypeException("Graph needs to be undirected");
         else if (!g.isWeighted())
@@ -273,7 +274,7 @@ public class GraphAlgorithms {
      * @return a list of type Edge which contains information on the starting and ending vertices and its weight
      * @throws WrongGraphTypeException if graph 'g' is not undirected
      */
-    <V> List<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {
+    public <V> List<Edge> kruskal(IGraph<V> g) throws WrongGraphTypeException {
         if (g.isDirected())
             throw new WrongGraphTypeException("Graph is not undirected");
 

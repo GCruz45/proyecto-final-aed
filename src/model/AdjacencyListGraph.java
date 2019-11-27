@@ -370,9 +370,9 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Gives the amount of vertices in the graph.
+     * Gives a Map that pairs vertices with their index
      *
-     * @return an int with said amount.
+     * @return said Map
      */
     @Override
     public Map<V, Integer> getVertices() {

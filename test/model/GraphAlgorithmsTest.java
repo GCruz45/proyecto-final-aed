@@ -147,6 +147,22 @@ class GraphAlgorithmsTest {
 
         setStage3();
         assertThrows(WrongEdgeTypeException.class, () -> algorithmTest.dijkstra(g, u));
+
+        setStage0();
+        dijkstraResult = algorithmTest.dijkstra(g, u);
+        assertEquals(15, dijkstraResult[1][0]);
+        assertEquals(11, dijkstraResult[2][0]);
+        assertEquals(14, dijkstraResult[3][0]);
+        assertEquals(16, dijkstraResult[4][0]);
+        assertEquals(0, dijkstraResult[1][1]);
+        assertEquals(0, dijkstraResult[2][1]);
+        assertEquals(2, dijkstraResult[3][1]);
+        assertEquals(3, dijkstraResult[4][1]);
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 2; j++)
+                System.out.print(dijkstraResult[i][j] + ", ");
+            System.out.println();
+        }
     }
 
     @Test
