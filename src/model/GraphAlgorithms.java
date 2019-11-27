@@ -10,40 +10,39 @@ import exceptions.WrongEdgeTypeException;
 import exceptions.WrongGraphTypeException;
 
 /**
- * This class is meant to execute different algorithms on graphs.
+ * This class is meant to provide different algorithms useful in managing graphs.
  *
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
- * TODO: Check all contract's grammar/spelling.
  */
 public class GraphAlgorithms {
 
     /**
-     * Performs a breadth-first search to traverse a graph
+     * Performs a breadth-first search traversal of this graph.
      *
-     * @param <V> Abstract data type that represent a vertex within the graph
-     * @param g   Graph which is going to be traversed
-     * @param u   Edge where it's going to start the BFS
-     * @return A list with a resultant order due to a BFS
+     * @param <V> type that represent a vertex within the graph
+     * @param g   graph to traverse
+     * @param u   vertex from which to begin traversal
+     * @return a list whose order follows that of a BFS
      */
     <V> List<V> bfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new CQueue<>());
     }
 
     /**
-     * Performs a depth-first search to traverse a graph
+     * Performs a depth-first search traversal of this graph.
      *
-     * @param <V> Abstract data type that represent a vertex within the graph
-     * @param g   Graph which is going to be traversed
-     * @param u   Edge where it's going to start the DFS
-     * @return A list with a resultant order due to a DFS
+     * @param <V> type that represent a vertex within the graph
+     * @param g   graph to traverse
+     * @param u   vertex from which to begin traversal
+     * @return a list whose order follows that of a DFS
      */
     <V> List<V> dfs(IGraph<V> g, V u) throws ElementNotFoundException {
         return traversal(g, u, new Stack<>());
     }
 
     /**
-     * This method will traverse the graph given a data structure. This will perform  BFS or DFS, given the case.
+     * This method will traverse the graph with the given appropriate data structure. This will perform  BFS or DFS, given the case.
      *
      * @param <V> Abstract data type that represent a vertex within the graph
      * @param g   The graph to be traversed.

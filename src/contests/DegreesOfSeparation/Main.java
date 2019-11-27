@@ -3,6 +3,7 @@ package contests.DegreesOfSeparation;
 import java.util.*;
 
 import java.io.*;
+
 /**
  * Class meant to be used in the virtual judge for the UVa 11492 - Babel problem
  */

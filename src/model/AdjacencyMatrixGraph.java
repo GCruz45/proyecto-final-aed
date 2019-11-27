@@ -54,12 +54,12 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     private Map<Integer, Vertex> vertices;
 
     /**
-     * TODO
+     * A map that pairs vertices to their index.
      */
     private Map<V, Integer> verticesIndices;
 
     /**
-     * TODO
+     * A map that pairs each vertex to a list representing all adjacent vertices along with the weight of the edge they share.
      */
     private Map<V, List<Map<V, Double>>> edges;
 
@@ -164,7 +164,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                 size++;
                 index = size - 1;
             } else
-                index = emptySlots.pollFirst();//TODO: May assign null?
+                index = emptySlots.pollFirst();
             vertices.put(index, new Vertex(index, u));
             verticesIndices.put(u, index);
             edges.put(u, new ArrayList<>());
@@ -193,8 +193,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
-     * @return
-     * @throws WrongEdgeTypeException if attempting to add to a weighted graph
+     * @return true if said edge could be added
+     * @throws WrongEdgeTypeException if adding a weighted edge to an unweighted graph
      */
     @Override
     public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
@@ -229,11 +229,11 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      * @param u a vertex within the graph
      * @param v a vertex within the graph
      * @param w is the weight of the edge between 'index' and 'v'
-     * @return
-     * @throws WrongEdgeTypeException
+     * @return true if said edge could be added
+     * @throws WrongEdgeTypeException if adding an uweighted edge to a weighted graph
      */
     @Override
-    public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {//TODO: Modificar para usar ElementNotfound en vez del if()
+    public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
         if (!isWeighted)
             throw new WrongEdgeTypeException("Tried to add a weighted edge to an unweighted graph.");
         Integer x = verticesIndices.get(u);
@@ -265,7 +265,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      *
      * @param u vertex to be removed from the graph
      * @return true if 'u' exists in the graph. False otherwise
-     * @throws ElementNotFoundException
+     * @throws ElementNotFoundException if the given vertex is not found
      */
     @Override
     public boolean removeVertex(V u) throws ElementNotFoundException {
@@ -294,13 +294,13 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Removes a directed edge from vertex 'u' to vertex 'v' if the graph is directed. Otherwise, removes an undirected
-     * edge between vertices 'u' and 'v'.
+     * Removes the edge from 'u' to 'v' if present. If the graph is undirected, also removes the edge
+     * from 'v' to 'u'.
      *
-     * @param u vertex connected with V
-     * @param v vertex connected with U
-     * @return
-     * @throws ElementNotFoundException
+     * @param u vertex from which the edge originates
+     * @param v vertex to which the edge arrives
+     * @return true if said edge/s was/were removed
+     * @throws ElementNotFoundException if either 'u' or 'v' don't belong to the graph
      */
     @Override
     public boolean removeEdge(V u, V v) throws ElementNotFoundException {
@@ -317,15 +317,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                     weightMatrix[y][x] = Double.MAX_VALUE;
                 }
 
-                for (Iterator<Map<V, Double>> iterator = edges.get(u).iterator(); iterator.hasNext(); ) {
-                   Map<V, Double> next = iterator.next();
-                        if (next.get(v) != null)
-                            iterator.remove();
-                }
-//                for (Map<V, Double> edge : edges.get(u)) { //Arroja ConcurrentModificationException
-//                    if (edge.get(v) != null)
-//                        edges.get(u).remove(edge);
-//                }
+                edges.get(u).removeIf(next -> next.get(v) != null);
+
                 if (isDirected) {
                     for (Iterator<List<Map<V, Double>>> iterator = edges.values().iterator(); iterator.hasNext(); ) {
                         List<Map<V, Double>> next = iterator.next();
@@ -333,10 +326,6 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
                             if (edgeMap.get(u) != null)
                                 iterator.remove();
                     }
-//                    for (List<Map<V, Double>> edgeList : edges.values())
-//                        for (Map<V, Double> edgeMap : edgeList)
-//                            if (edgeMap.get(u) != null)
-//                                edgeList.remove(edgeMap);
                 }
             }
         } else {
@@ -353,7 +342,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      *
      * @param v vertex whose adjacent vertices are to be consulted
      * @return a List<V> containing all vertices adjacent to 'v'
-     * @throws ElementNotFoundException
+     * @throws ElementNotFoundException if 'u' doesn't belong to the graph
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -377,7 +366,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      * @param u a vertex
      * @param v a vertex
      * @return true if and only if said edge exists
-     * @throws ElementNotFoundException
+     * @throws ElementNotFoundException if either 'u' or 'v' are not in the graph
      */
     @Override
     public boolean areConnected(V u, V v) throws ElementNotFoundException {
@@ -438,9 +427,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Gives the amount of vertices in the graph.
      *
-     * @return
+     * @return an int with said amount.
      */
     @Override
     public Map<V, Integer> getVertices() {
@@ -448,9 +437,11 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Gives a Map that pairs the starting vertex with a List of maps that represent all vertices
+     * it arrives to along with the value of its edge. If the graph is unweighted, the edges' value
+     * is set to Double.MAX_VALUE by default.
      *
-     * @return
+     * @return a Map that represents a vertex and all edges that originate from itself
      */
     @Override
     public Map<V, List<Map<V, Double>>> getEdges() {
@@ -462,7 +453,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      *
      * @param u the vertex whose index will be returned
      * @return the index of the vertex in the matrix
-     * @throws ElementNotFoundException
+     * @throws ElementNotFoundException if 'u' is not in the graph
      */
     @Override
     public int getIndex(V u) throws ElementNotFoundException {
