@@ -8,12 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This interface has the minimum and general features that a graph should implement no matter which would be its representation.
+ * This interface has the minimum and general features that a graph should implement no matter which would be its representation. Does not admit multi-graphs.
  *
  * @param <V> Abstract data type which represents an object from a natural problem that is going to be modeled as a vertex in a graph representation of the problem
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
- * TODO: Mencionar que no admite pseudografos.
  */
 public interface IGraph<V> {
 
@@ -84,35 +83,48 @@ public interface IGraph<V> {
     double[][] weightMatrix();
 
     /**
-     * TODO
+     * Returns whether the graph is directed.
      *
-     * @return True if the graph is directed or false if it isn't
+     * @return true if and only if graph is directed
      */
     boolean isDirected();
 
     /**
-     * TODO
+     * Returns whether the graph is weighted.
      *
-     * @return True if the graph is weighted or false if it isn't
+     * @return true if and only if graph is weighted
      */
     boolean isWeighted();
 
     /**
-     * TODO
+     * Returns the index of vertex 'u' in the matrix.
      *
-     * @param u
-     * @return
+     * @param u the vertex whose index will be returned
+     * @return the index of the vertex in the matrix
+     * @throws ElementNotFoundException if 'u' is not in the graph
      */
     int getIndex(V u) throws ElementNotFoundException;
 
     /**
-     * TODO
+     * Gives the amount of vertices in the graph.
      *
-     * @return
+     * @return an int with said amount.
      */
     int getVertexSize();
 
+    /**
+     * Gives a Map that pairs vertices with their index
+     *
+     * @return said Map
+     */
     Map<V, Integer> getVertices();
 
+    /**
+     * Gives a Map that pairs the starting vertex with a List of maps that represent all vertices
+     * it arrives to along with the value of its edge. If the graph is unweighted, the edges' value
+     * is set to Double.MAX_VALUE by default.
+     *
+     * @return a Map that represents a vertex and all edges that originate from itself
+     */
     Map<V, List<Map<V, Double>>> getEdges();
 }
