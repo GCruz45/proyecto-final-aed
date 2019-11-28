@@ -127,6 +127,10 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         size = 0;
         adjacencyMatrix = new double[capacity][capacity];
         weightMatrix = new double[capacity][capacity];
+        for (int i = 0; i < capacity; i++) {
+            for (int j = 0; j < capacity; j++)
+                weightMatrix[i][j] = Double.MAX_VALUE;
+        }
         vertices = new HashMap<>();
         verticesIndices = new HashMap<>();
         emptySlots = new TreeSet<>();
@@ -148,17 +152,25 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
         if (verticesIndices.get(u) == null) {
             if (emptySlots.isEmpty()) {//No reusable rows/columns in the matrix
                 if (size == adjacencyMatrix.length) {//Needs to initialize a bigger array
-                    double[][] placeHolder = adjacencyMatrix;
                     int newLength = (int) (adjacencyMatrix.length * GROWTH_FACTOR);
-                    adjacencyMatrix = new double[newLength][newLength];
-                    for (int i = 0; i < placeHolder.length; i++) {
-                        System.arraycopy(placeHolder[i], 0, adjacencyMatrix[i], 0, placeHolder.length);
+
+                    double[][] placeHolder = new double[newLength][newLength];//Temporarily holds the data of weightMatrix.
+                    for (int i = 0; i < adjacencyMatrix.length; i++) {
+                        for (int j = 0; j < adjacencyMatrix.length; j++)
+                            placeHolder[i][j] = adjacencyMatrix[i][j];
                     }
+                    adjacencyMatrix = placeHolder;
+
                     if (isWeighted) {
-                        weightMatrix = new double[newLength][newLength];
-                        for (int i = 0; i < placeHolder.length; i++) {
-                            System.arraycopy(placeHolder[i], 0, weightMatrix[i], 0, placeHolder.length);
+                        double[][] weightPlaceholder = new double[newLength][newLength];//Temporarily holds the data of weightMatrix.
+                        for (int i = 0; i < newLength; i++) {
+                            for (int j = 0; j < newLength; j++) {
+                                if (i >= weightMatrix.length || j >= weightMatrix.length)
+                                    weightPlaceholder[i][j] = Double.MAX_VALUE;
+                                else weightPlaceholder[i][j] = weightMatrix[i][j];
+                            }
                         }
+                        weightMatrix = weightPlaceholder;
                     }
                 }
                 size++;
@@ -168,18 +180,6 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             vertices.put(index, new Vertex(index, u));
             verticesIndices.put(u, index);
             edges.put(u, new ArrayList<>());
-            for (int i = 0; i < 2; i++) {//Sets the weight of all edges from the new vertex to infinity.
-                for (int j = 0; j < size; j++) {
-                    switch (i) {
-                        case 0:
-                            weightMatrix[index][j] = Double.MAX_VALUE;
-                            break;
-                        case 1:
-                            weightMatrix[j][index] = Double.MAX_VALUE;
-                            break;
-                    }
-                }
-            }
             weightMatrix[index][index] = 0.0;
             added = true;
         } else

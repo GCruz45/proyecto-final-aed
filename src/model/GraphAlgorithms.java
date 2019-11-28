@@ -195,8 +195,11 @@ public class GraphAlgorithms {
         for (int k = 0; k < n; k++) {
             double[][] dk = new double[n][n];
             for (int j = 0; j < n; j++)
-                for (int i = 0; i < n; i++)
-                    dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
+                for (int i = 0; i < n; i++){
+                    if (d[i][k] == Double.MAX_VALUE || d[k][j] == Double.MAX_VALUE) {
+                        dk[i][j] = d[i][j];
+                    }else
+                        dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);}
             d = dk;
         }
         return d;

@@ -1,13 +1,13 @@
-package contests.DegreesOfSeparation;
+package contests;
 
 import exceptions.ElementAlreadyPresentException;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
+import model.AdjacencyListGraph;
 import model.AdjacencyMatrixGraph;
 import model.GraphAlgorithms;
 import model.IGraph;
 
-import java.nio.Buffer;
 import java.util.*;
 
 import java.io.*;
@@ -15,7 +15,7 @@ import java.io.*;
 /**
  * Class meant to be used in the virtual judge for the UVa 11492 - Babel problem
  */
-public class Main {
+public class Babel {
 //    private static BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException, ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
@@ -28,7 +28,8 @@ public class Main {
         String endLang;
         String lang1;
         String lang2;
-        double edge;
+        String edge;
+        int edgeSize;
         double[][] solution;
         IGraph<String> graph;
 
@@ -43,7 +44,8 @@ public class Main {
                 input = br.readLine().split(" ");
                 lang1 = input[0];
                 lang2 = input[1];
-                edge = input[2].length();
+                edge = input[2];
+                edgeSize = input[2].length();
 
                 if (graph.getVertices().get(lang1) == null)//Checks presence of lang1 in the graph.
                     graph.addVertex(lang1);
