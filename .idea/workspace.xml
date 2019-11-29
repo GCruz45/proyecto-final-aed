@@ -1,83 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ade9584a-b95d-4099-a8cc-95b536ee6531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$AdjacencyMatrixGraph.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementAlreadyPresentException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementNotFoundException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$GraphAlgorithms.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$IGraph.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$Vertex.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongEdgeTypeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongGraphTypeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/ProblemSolver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/proyecto-final-aed/META-INF/proyecto-final-aed.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+    <list default="true" id="224e1f84-b263-4625-9b8b-2bf48af0df93" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/contests/DegreesOfSeparation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/collections/CQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/collections/ICollection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/collections/Stack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$AdjacencyMatrixGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$AdjacencyMatrixGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$ElementAlreadyPresentException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$ElementAlreadyPresentException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$ElementNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$ElementNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$Graph.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$GraphAlgorithms$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$GraphAlgorithms$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$GraphAlgorithms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$GraphAlgorithms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$IGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$IGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$WrongEdgeTypeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel$WrongEdgeTypeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/META-INF/proyecto-final-aed.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/Babel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$AdjacencyMatrixGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$AdjacencyMatrixGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$ElementAlreadyPresentException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$ElementNotFoundException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$GraphAlgorithms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$GraphAlgorithms.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$IGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$IGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$WrongEdgeTypeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation$WrongGraphTypeException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main$Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main$Graph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/controller/windowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/exceptions/ElementAlreadyPresentException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/exceptions/ElementNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/exceptions/WrongEdgeTypeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/exceptions/WrongGraphTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$AdjacencyMatrixGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$AdjacencyMatrixGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementAlreadyPresentException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementAlreadyPresentException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$ElementNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$GraphAlgorithms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$GraphAlgorithms.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$IGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$IGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongEdgeTypeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongEdgeTypeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongGraphTypeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2$WrongGraphTypeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/contests/DegreesOfSeparation2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/AdjacencyListGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/AdjacencyListGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/AdjacencyMatrixGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/AdjacencyMatrixGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/Edge.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$subset.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms$subset.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/GraphAlgorithms.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/IGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/IGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/Vertex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/ProblemSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/model/ProblemSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/view/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/view/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/view/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/proyecto-final-aed/view/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proyecto-final-aed/view/GUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyListGraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyListGraphTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyMatrixGraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/AdjacencyMatrixGraphTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/GraphAlgorithmsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/proyecto-final-aed/model/GraphAlgorithmsTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contests/Babel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contests/Babel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contests/DegreesOfSeparation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contests/DegreesOfSeparation2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contests/DegreesOfSeparation2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GraphAlgorithms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/GraphAlgorithmsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AdjacencyListGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AdjacencyMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Edge.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ErrorTreeViewConfiguration">
-    <option name="autoscrollToSource" value="true" />
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -91,7 +67,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Babel">
+    <configuration name="Babel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="contests.Babel" />
+      <module name="proyecto-final-aed" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="contests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.Main" />
       <module name="proyecto-final-aed" />
@@ -107,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Babel" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -127,5 +117,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

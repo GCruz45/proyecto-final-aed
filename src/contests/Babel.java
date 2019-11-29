@@ -40,6 +40,7 @@ class Babel {
                 if (graph.getVertices().get(lang2) == null)//Checks presence of lang2 in the graph.
                     graph.addVertex(lang2);
 
+                graph.addEdge(lang1, lang2, edge);
             }
             solution = algorithms.dijkstra(graph, startLang);
             if (!solution[graph.getIndex(endLang)][0].equals(""))

@@ -1,24 +1,18 @@
 package model;
 
-class Edge implements Comparable<Edge> {
-    int u, v;
+class Edge<V>{
+    V u, v;
     Double weight;
 
-    Edge(int u, int v) {
+    Edge(V u, V v) {
         this.u = u;
         this.v = v;
         this.weight = Double.MIN_VALUE;
     }
 
-    Edge(int u, int v, double weight) {
+    Edge(V u, V v, double weight) {
         this.u = u;
         this.v = v;
         this.weight = weight;
-    }
-
-    @Override
-    public int compareTo(Edge edgeToCompare) {
-        Double weightToCompare = edgeToCompare.weight;
-        return weight.compareTo(weightToCompare);
     }
 }

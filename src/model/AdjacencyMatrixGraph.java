@@ -222,7 +222,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
-        Edge e = new Edge(x, y);
+        Edge e = new Edge(u, v);
         edgesArray.add(e);
         return true;
     }
@@ -263,7 +263,7 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
-        Edge e = new Edge(x, y);
+        Edge e = new Edge(u, v, w);
         edgesArray.add(e);
         return true;
     }

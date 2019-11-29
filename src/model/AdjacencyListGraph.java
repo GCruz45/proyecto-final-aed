@@ -143,7 +143,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
-        Edge e = new Edge(indexU, indexV);
+        Edge e = new Edge(u, v);
         edgesArray.add(e);
         return true;
     }
@@ -181,7 +181,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
-        Edge e = new Edge(indexU, indexV, w);
+        Edge e = new Edge(u, v, w);
         edgesArray.add(e);return true;
     }
 
