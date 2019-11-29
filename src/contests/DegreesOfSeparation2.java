@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Class meant to be used in the virtual judge for the UVa 1056 - Degrees of Separation
  */
-public class DegreesOfSeparation {
+class DegreesOfSeparation2 {
 //    private static BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException, ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException, WrongGraphTypeException {
@@ -63,7 +63,7 @@ public class DegreesOfSeparation {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public interface IGraph<V> {
+    interface IGraph<V> {
 
         /**
          * Adds a vertex to the graph
@@ -117,7 +117,7 @@ public class DegreesOfSeparation {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public static class AdjacencyMatrixGraph<V> implements IGraph<V> {
+    static class AdjacencyMatrixGraph<V> implements IGraph<V> {
 
         /**
          * The length of the matrix when using the default Constructor.
@@ -191,7 +191,6 @@ public class DegreesOfSeparation {
 
         /**
          * Auxiliary method used by the Constructor to set values to the class' fields. Creates the adjacency matrix.
-         *
          */
         private void initialize() {
             isDirected = false;
@@ -341,7 +340,7 @@ public class DegreesOfSeparation {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public static class GraphAlgorithms {
+    static class GraphAlgorithms {
         /**
          * An algorithm based on the approach by Floyd and Warshall for finding the minimum distance from all nodes in a
          * graph to every other node. If reaching vertex 'j' from vertex 'i' is not possible, position [i][j] returns
@@ -395,11 +394,10 @@ public class DegreesOfSeparation {
         }
     }
 
-
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class ElementNotFoundException extends Exception {
+    static class ElementNotFoundException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
@@ -414,7 +412,7 @@ public class DegreesOfSeparation {
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class ElementAlreadyPresentException extends Exception {
+    static class ElementAlreadyPresentException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
@@ -429,7 +427,7 @@ public class DegreesOfSeparation {
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class WrongGraphTypeException extends Exception {
+    static class WrongGraphTypeException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
@@ -444,7 +442,7 @@ public class DegreesOfSeparation {
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class WrongEdgeTypeException extends Exception {
+    static class WrongEdgeTypeException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.

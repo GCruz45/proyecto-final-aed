@@ -134,7 +134,7 @@ public class GraphAlgorithms {
      * @param w            weight matrix of the graph
      * @throws WrongEdgeTypeException if a negative edge is found
      */
-    private void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
+    private static void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
         for (int i = 0; i < shortestPath.length; i++) {
             if (w[indexOfS][i] < 0.0)
                 throw new WrongEdgeTypeException("Graph contains a negative edge");
@@ -155,7 +155,7 @@ public class GraphAlgorithms {
      * @param indexOfV     index of the vertex whose distance is to be compared
      * @param w            weight matrix of the graph
      */
-    private void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and index exist in the graph.
+    private static void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and index exist in the graph.
         int indexOfU = u[0].intValue();
         double suDistance = shortestPath[indexOfU][0];
         double uvDistance = w[indexOfU][indexOfV];
