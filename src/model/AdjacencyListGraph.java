@@ -5,12 +5,11 @@ import exceptions.*;
 import java.util.*;
 
 /**
- * This class models a graph using an Adjacency list
+ * This class models a graph using an Adjacency List.
  *
  * @param <V> Abstract data type which represents an object from a natural problem that is going to be modeled as a vertex in a graph representation of the problem
  * @author AED Class # 003 // 2019
  * @version 1.0 - 10/2019
- * TODO: Check contracts grammar/spelling.
  */
 public class AdjacencyListGraph<V> implements IGraph<V> {
 
@@ -21,32 +20,27 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     private Map<V, Integer> vertices;
 
     /**
-     * A list for each Edge within the graph which has a list with all its adjacent Vertices
+     * A list for each Edge within the graph which has a list with all its adjacent vertices.
      */
     private List<List<V>> adjacencyLists;
 
     /**
-     * Property that say if a graph is directed or not
+     * Property that indicates if the graph is directed.
      */
     private boolean isDirected;
 
     /**
-     * TODO
+     * Property that indicates if the graph is weighted.
      */
     private boolean isWeighted;
 
     /**
-     * TODO
-     */
-    private double[][] weightMatrix;
-
-    /**
-     * TODO
+     * A map that pairs each vertex to a list representing all adjacent vertices along with the weight of the edge they share.
      */
     private Map<V, List<Map<V, Double>>> edges;
 
     /**
-     * Basic constructor that is initialized with default values
+     * Basic constructor that is initialized with default values.
      */
     public AdjacencyListGraph() {
         initialize();
@@ -54,7 +48,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
 
     /**
      * Constructor that gets the value for "isDirected" attribute.
-     * True if the graph is Directed or false if it's Indirected
+     * True if the graph is Directed or false otherwise.
      *
      * @param id value to set "isDirected"
      */
@@ -65,8 +59,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * Initializes all the data structures for this graph.
-     * Set "isDirected" attribute in false
+     * Initializes all the data structures used for this graph.
      */
     private void initialize() {
         isDirected = false;
@@ -77,11 +70,12 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Adds the given vertex to the adjacency list at the last position. Throws an exception if and only if said vertex
+     * is already in the graph.
      *
      * @param u The new vertex to be added
-     * @return
-     * @throws ElementAlreadyPresentException
+     * @return true if the vertex was added
+     * @throws ElementAlreadyPresentException if the vertex was already present
      */
     @Override
     public boolean addVertex(V u) throws ElementAlreadyPresentException {
@@ -103,22 +97,23 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * checks if a vertex is within the graph
+     * Checks if a given vertex belongs to the graph.
      *
-     * @param v Edge to be searched
-     * @return True if found or false if not
+     * @param v edge to be searched
+     * @return true if found or false otherwise
      */
     private boolean searchVertex(V v) {
         return vertices.containsKey(v);
     }
 
     /**
-     * TODO
+     * Adds an edge from 'u' to 'v'. If the graph is undirected, also adds an
+     * edge from 'v' to 'u'.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
-     * @return
-     * @throws WrongEdgeTypeException
+     * @return true if said edge could be added
+     * @throws WrongEdgeTypeException if adding a weighted edge to an unweighted graph
      */
     @Override
     public boolean addEdge(V u, V v) throws WrongEdgeTypeException, ElementNotFoundException {
@@ -127,7 +122,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         Integer indexU = vertices.get(u);
         Integer indexV = vertices.get(v);
         if (indexU != null && indexV != null) {
-            if (!isDirected){
+            if (!isDirected) {
                 adjacencyLists.get(indexV).add(u);
                 Map<V, Double> mapOfU = new HashMap<>();
                 mapOfU.put(u, Double.MAX_VALUE);
@@ -147,13 +142,14 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Adds an edge from 'u' to 'v' of weight 'w'. If the graph is undirected, also adds an
+     * edge from 'v' to 'u' of weight 'w'.
      *
      * @param u a vertex within the graph
      * @param v a vertex within the graph
      * @param w is the weight of the edge
-     * @return
-     * @throws WrongEdgeTypeException
+     * @return true if said edge could be added
+     * @throws WrongEdgeTypeException if adding an unweighted edge to a weighted graph.
      */
     @Override
     public boolean addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
@@ -162,7 +158,7 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
         Integer indexU = vertices.get(u);
         Integer indexV = vertices.get(v);
         if (indexU != null && indexV != null) {
-            if (!isDirected){
+            if (!isDirected) {
                 adjacencyLists.get(indexV).add(u);
                 Map<V, Double> mapOfU = new HashMap<>();
                 mapOfU.put(u, w);
@@ -182,11 +178,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Removes the given vertex from the graph.
      *
-     * @param u A vertex to be removed of the graph
-     * @return
-     * @throws ElementNotFoundException
+     * @param u the vertex to be removed
+     * @return true if the vertex was removed
+     * @throws ElementNotFoundException if the given vertex is not found
      */
     @SuppressWarnings("unlikely-arg-type")
     @Override
@@ -210,12 +206,13 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Removes the edge from 'u' to 'v'. If the graph is undirected, also removes the edge
+     * from 'v' to 'u'.
      *
-     * @param u A vertex connected with V
-     * @param v A vertex connected with U
-     * @return
-     * @throws ElementNotFoundException
+     * @param u vertex from which the edge originates
+     * @param v vertex to which the edge arrives
+     * @return true if said edge/s was/were removed
+     * @throws ElementNotFoundException if either 'u' or 'v' don't belong to the graph
      */
     @Override
     public boolean removeEdge(V u, V v) throws ElementNotFoundException {
@@ -254,11 +251,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Returns a list of vertices adjacent to the given node.
      *
-     * @param u The vertex to be consulted its adjacent vertices
-     * @return
-     * @throws ElementNotFoundException
+     * @param u vertex whose adjacent nodes are to be listed
+     * @return list of its adjacent vertices
+     * @throws ElementNotFoundException if 'u' doesn't belong to the graph
      */
     @Override
     public List<V> vertexAdjacent(V u) throws ElementNotFoundException {
@@ -269,12 +266,13 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Indicates if there exists an edge starting from 'u' and ending in 'v'. If the graph is directed, both directions
+     * are checked.
      *
-     * @param u Is a vertex
-     * @param v Is a vertex
-     * @return
-     * @throws ElementNotFoundException
+     * @param u starting vertex
+     * @param v ending vertex
+     * @return true if said edge exists
+     * @throws ElementNotFoundException if either 'u' or 'v' are not in the graph
      */
     @Override
     public boolean areConnected(V u, V v) throws ElementNotFoundException {
@@ -299,19 +297,18 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Returns the weight matrix that represents the weight of all edges between vertices in this graph.
      *
-     * @return
+     * @return a matrix containing said values
      */
     @Override
     public double[][] weightMatrix() {
         int size = adjacencyLists.size();
-        weightMatrix = new double[size][size];
+        double[][] weightMatrix = new double[size][size];
 
-        //Fills the weight matrix with infinity in every cell.
+        //Fills every cell with infinite.
         for (int i = 0; i < size; i++)
             Arrays.fill(weightMatrix[i], Double.MAX_VALUE);
-        //TODO:
         if (isWeighted) {
             for (V u : edges.keySet()) {
                 List<Map<V, Double>> listOfU = edges.get(u);
@@ -328,9 +325,9 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Indicates whether this graph is directed.
      *
-     * @return
+     * @return true if this graph is directed. False, otherwise
      */
     @Override
     public boolean isDirected() {
@@ -338,26 +335,21 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Indicates whether this graph is weighted.
      *
-     * @return
+     * @return true if this graph is weighted. False, otherwise
      */
     @Override
     public boolean isWeighted() {
         return isWeighted;
     }
 
-//    /**
-//     * @return The graph. A list with lists of vertices and its adjacent vertices
-//     */
-//    public List<List<V>> getAdjacencyList() {
-//        return adjacencyLists;
-//    }
-
     /**
-     * TODO
+     * Returns the index of vertex 'u' in the matrix.
      *
-     * @return
+     * @param u the vertex whose index will be returned
+     * @return the index of the vertex in the matrix
+     * @throws ElementNotFoundException if 'u' is not in the graph
      */
     @Override
     public int getIndex(V u) throws ElementNotFoundException {
@@ -368,9 +360,9 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Gives the amount of vertices in the graph.
      *
-     * @return
+     * @return an int with said amount.
      */
     @Override
     public int getVertexSize() {
@@ -378,9 +370,9 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Gives a Map that pairs vertices with their index
      *
-     * @return
+     * @return said Map
      */
     @Override
     public Map<V, Integer> getVertices() {
@@ -388,9 +380,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     }
 
     /**
-     * TODO
+     * Gives a Map that pairs the starting vertex with a List of maps that represent all vertices
+     * it arrives to along with the value of its edge. If the graph is unweighted, the edges' value
+     * is set to Double.MAX_VALUE by default.
      *
-     * @return
+     * @return a Map that represents a vertex and all edges that originate from itself
      */
     @Override
     public Map<V, List<Map<V, Double>>> getEdges() {
