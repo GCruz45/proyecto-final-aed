@@ -7,9 +7,7 @@ import java.io.*;
 /**
  * Class meant to be used in the virtual judge for the UVa 11492 - Babel problem
  */
-public class Babel {
-    private static BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-
+class Babel {
     public static void main(String[] args) throws IOException, ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         GraphAlgorithms algorithms = new GraphAlgorithms();
@@ -21,8 +19,7 @@ public class Babel {
         String lang1;
         String lang2;
         String edge;
-        int edgeSize;
-        double[][] solution;
+        String[][] solution;
         IGraph<String> graph;
 
         while ((words = Integer.parseInt(br.readLine())) != 0) {
@@ -37,44 +34,20 @@ public class Babel {
                 lang1 = input[0];
                 lang2 = input[1];
                 edge = input[2];
-                edgeSize = input[2].length();
 
                 if (graph.getVertices().get(lang1) == null)//Checks presence of lang1 in the graph.
                     graph.addVertex(lang1);
                 if (graph.getVertices().get(lang2) == null)//Checks presence of lang2 in the graph.
                     graph.addVertex(lang2);
 
-                if (graph.areConnected(lang1, lang2)) {
-                    int index1 = graph.getIndex(lang1);
-                    int index2 = graph.getIndex(lang2);
-                    if (edge < graph.weightMatrix()[index1][index2]) {
-                        graph.removeEdge(lang1, lang2);
-                        graph.addEdge(lang1, lang2, edge);
-                    }
-                } else
-                    graph.addEdge(lang1, lang2, edge);
+                graph.addEdge(lang1, lang2, edge);
             }
             solution = algorithms.dijkstra(graph, startLang);
-            if (solution[graph.getIndex(endLang)][0] != Double.MAX_VALUE)
-                System.out.println((int) solution[graph.getIndex(endLang)][0]);
+            if (!solution[graph.getIndex(endLang)][0].equals(""))
+                System.out.println(solution[graph.getIndex(endLang)][0]);
             else
                 System.out.println("impossivel");
         }
-
-//        String input = "";
-//        String output = "";
-//        int count = 1;
-//        IGraph graph = new AdjacencyMatrixGraph(false,false);
-//        while(!input.equals("0 0")) {
-//            input = rd.readLine();
-//            Graph g = new Graph(input);
-//            String[] network = rd.readLine().split(" ");
-//            for(int i = 0; i<network.length; i++){
-//                g.addEdge(network[i], network[i+1]);
-//            }
-//            output += "Network " + count + g.returnSolution();
-//        }
-//        System.out.println(output);
     }
 
     /**
@@ -84,7 +57,7 @@ public class Babel {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public interface IGraph<V> {
+    interface IGraph<V> {
 
         /**
          * Adds a vertex to the graph
@@ -93,23 +66,7 @@ public class Babel {
          */
         void addVertex(V u) throws ElementAlreadyPresentException;
 
-        /**
-         * Adds a weighted edge to the graph
-         * If the graph is directed the connection will be from U to V
-         * <pre> U and V have to exist in the graph
-         * @param u a vertex within the graph
-         * @param v a vertex within the graph
-         * @param w    is the weight of the edge
-         */
-        void addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException;
-
-        /**
-         * Removes an edge within the graph
-         * <pre> U and V are within the graph
-         * @param u A vertex connected with V
-         * @param v A vertex connected with U
-         */
-        void removeEdge(V u, V v) throws ElementNotFoundException;
+        void addEdge(V u, V v, String w) throws WrongEdgeTypeException, ElementNotFoundException;
 
         /**
          * Check if U and V are connected
@@ -124,7 +81,7 @@ public class Babel {
          * <pre> The graph is weighted
          * @return A matrix with the weight of all the connections
          */
-        double[][] weightMatrix();
+        LinkedList[][] weightMatrix();
 
         /**
          * Returns the index of vertex 'u' in the matrix.
@@ -157,7 +114,7 @@ public class Babel {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public static class AdjacencyMatrixGraph<V> implements IGraph<V> {
+    static class AdjacencyMatrixGraph<V> implements IGraph<V> {
 
         /**
          * The length of the matrix when using the default Constructor.
@@ -192,7 +149,7 @@ public class Babel {
         /**
          * The associated matrix containing the weight of all edged between nodes in the graph.
          */
-        private double[][] weightMatrix;
+        private LinkedList<String>[][] weightMatrix = new LinkedList[DEFAULT_CAPACITY][DEFAULT_CAPACITY];
 
         /**
          * A Map that accesses any vertex in the graph through its index in the matrix.
@@ -207,7 +164,7 @@ public class Babel {
         /**
          * A map that pairs each vertex to a list representing all adjacent vertices along with the weight of the edge they share.
          */
-        private Map<V, List<Map<V, Double>>> edges;
+        private Map<V, List<Map<V, String>>> edges;
 
         /**
          * A Set that contains ordered, non-duplicate Integers of empty row/columns in the matrix whose values are lesser
@@ -231,22 +188,19 @@ public class Babel {
 
         /**
          * Auxiliary method used by the Constructor to set values to the class' fields. Creates the adjacency matrix.
-         *
          */
         private void initialize() {
             isDirected = false;
             isWeighted = false;
             size = 0;
-            adjacencyMatrix = new double[AdjacencyMatrixGraph.DEFAULT_CAPACITY][AdjacencyMatrixGraph.DEFAULT_CAPACITY];
-            weightMatrix = new double[AdjacencyMatrixGraph.DEFAULT_CAPACITY][AdjacencyMatrixGraph.DEFAULT_CAPACITY];
-            for (int i = 0; i < AdjacencyMatrixGraph.DEFAULT_CAPACITY; i++) {
-                for (int j = 0; j < AdjacencyMatrixGraph.DEFAULT_CAPACITY; j++)
-                    weightMatrix[i][j] = Double.MAX_VALUE;
-            }
             vertices = new HashMap<>();
             verticesIndices = new HashMap<>();
             emptySlots = new TreeSet<>();
             edges = new HashMap<>();
+            adjacencyMatrix = new double[DEFAULT_CAPACITY][DEFAULT_CAPACITY];
+            for (int i = 0; i < DEFAULT_CAPACITY; i++)
+                for (int j = 0; j < DEFAULT_CAPACITY; j++)
+                    weightMatrix[i][j] = new LinkedList<>();
         }
 
         /**
@@ -271,17 +225,11 @@ public class Babel {
                         }
                         adjacencyMatrix = placeHolder;
 
-                        if (isWeighted) {
-                            double[][] weightPlaceholder = new double[newLength][newLength];//Temporarily holds the data of weightMatrix.
-                            for (int i = 0; i < newLength; i++) {
-                                for (int j = 0; j < newLength; j++) {
-                                    if (i >= weightMatrix.length || j >= weightMatrix.length)
-                                        weightPlaceholder[i][j] = Double.MAX_VALUE;
-                                    else weightPlaceholder[i][j] = weightMatrix[i][j];
-                                }
-                            }
-                            weightMatrix = weightPlaceholder;
-                        }
+                        LinkedList[][] weightPlaceholder = new LinkedList[newLength][newLength];//Temporarily holds the data of weightMatrix.
+                        for (int i = 0; i < weightMatrix.length; i++)
+                            for (int j = 0; j < weightMatrix.length; j++)
+                                weightPlaceholder[i][j] = weightMatrix[i][j];
+                        weightMatrix = weightPlaceholder;
                     }
                     size++;
                     index = size - 1;
@@ -290,7 +238,7 @@ public class Babel {
                 vertices.put(index, new Vertex(index, u));
                 verticesIndices.put(u, index);
                 edges.put(u, new ArrayList<>());
-                weightMatrix[index][index] = 0.0;
+                weightMatrix[index][index] = new LinkedList<>();
             } else
                 throw new ElementAlreadyPresentException("Element is already present");
         }
@@ -305,22 +253,23 @@ public class Babel {
          * @throws WrongEdgeTypeException if adding an uweighted edge to a weighted graph
          */
         @Override
-        public void addEdge(V u, V v, double w) throws WrongEdgeTypeException, ElementNotFoundException {
+        @SuppressWarnings("unchecked")
+        public void addEdge(V u, V v, String w) throws WrongEdgeTypeException, ElementNotFoundException {
             if (!isWeighted)
                 throw new WrongEdgeTypeException("Tried to add a weighted edge to an unweighted graph.");
 
             Integer x = verticesIndices.get(u);
             Integer y = verticesIndices.get(v);
             if (x != null && y != null) {
-                Map<V, Double> mapOfV = new HashMap<>();
+                Map<V, String> mapOfV = new HashMap<>();
                 mapOfV.put(v, w);
                 edges.get(u).add(mapOfV);
                 adjacencyMatrix[x][y] = 1;
-                weightMatrix[x][y] = w;
+                weightMatrix[x][y].add(w);
                 if (!isDirected) {
                     adjacencyMatrix[y][x] = 1;
-                    weightMatrix[y][x] = w;
-                    Map<V, Double> mapOfU = new HashMap<>();
+                    weightMatrix[y][x].add(w);
+                    Map<V, String> mapOfU = new HashMap<>();
                     mapOfU.put(u, w);
                     edges.get(v).add(mapOfU);
                 }
@@ -329,48 +278,6 @@ public class Babel {
                     throw new ElementNotFoundException("First element not found in graph");
                 else
                     throw new ElementNotFoundException("Second element not found in graph");
-            }
-        }
-
-        /**
-         * Removes the edge from 'u' to 'v' if present. If the graph is undirected, also removes the edge
-         * from 'v' to 'u'.
-         *
-         * @param u vertex from which the edge originates
-         * @param v vertex to which the edge arrives
-         * @throws ElementNotFoundException if either 'u' or 'v' don't belong to the graph
-         */
-        @Override
-        public void removeEdge(V u, V v) throws ElementNotFoundException {
-            boolean removed = false;
-            Integer x = verticesIndices.get(u);
-            Integer y = verticesIndices.get(v);
-            if (x != null && y != null) {
-                if (adjacencyMatrix[x][y] != 0) {
-                    removed = true;
-                    adjacencyMatrix[x][y] = 0;
-                    weightMatrix[x][y] = Double.MAX_VALUE;
-                    if (!isDirected) {
-                        adjacencyMatrix[y][x] = 0;
-                        weightMatrix[y][x] = Double.MAX_VALUE;
-                    }
-
-                    edges.get(u).removeIf(next -> next.get(v) != null);
-
-                    if (isDirected) {
-                        for (Iterator<List<Map<V, Double>>> iterator = edges.values().iterator(); iterator.hasNext(); ) {
-                            List<Map<V, Double>> next = iterator.next();
-                            for (Map<V, Double> edgeMap : next)
-                                if (edgeMap.get(u) != null)
-                                    iterator.remove();
-                        }
-                    }
-                }
-            } else {
-                if (x == null)
-                    throw new ElementNotFoundException("First parameter was not found in graph");
-                else
-                    throw new ElementNotFoundException("Second parameter was not found in graph");
             }
         }
 
@@ -407,7 +314,7 @@ public class Babel {
          * @return the matrix containing all weights in the graph
          */
         @Override
-        public double[][] weightMatrix() {
+        public LinkedList<String>[][] weightMatrix() {
             return weightMatrix;
         }
 
@@ -452,47 +359,73 @@ public class Babel {
      * @author AED Class # 003 // 2019
      * @version 1.0 - 10/2019
      */
-    public static class GraphAlgorithms {
+    static class GraphAlgorithms {
         /**
          * An algorithm based on Dijkstra's approach to finding the shortest path from a given vertex to all vertices in
          * the graph.
          *
-         * @param <V> type that represents a vertex within the graph
-         * @param g   graph to traverse
-         * @param s   vertex from which to begin traversing
+         * @param g graph to traverse
+         * @param s vertex from which to begin traversing
          * @return a matrix of two columns which are both the distance from the origin to 'i' (cell [i][0]) and the
          * parent of 'i' through which the shortest path is achieved (cell [i][1])
          * @throws ElementNotFoundException if 's' does not belong to the graph
-         * @throws WrongEdgeTypeException   if a negative edge is found
          */
-        <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
-            double[][] w = g.weightMatrix();
+        @SuppressWarnings("unchecked")
+        String[][] dijkstra(IGraph<String> g, String s) throws ElementNotFoundException {
+            LinkedList<String>[][] w = g.weightMatrix();
             int logicalSize = g.getVertexSize();
-            double[][] shortestPath = new double[logicalSize][2];
+            String[][] shortestPath = new String[logicalSize][2];
             int indexOfS = g.getIndex(s);
 
             //----------------------------Comienzo segun Cormen----------------------------//
-            initializeSingleSource(indexOfS, shortestPath, w);
-            Queue<Double[]> q = new PriorityQueue<>(logicalSize, new Comparator<Double[]>() {
+            initializeSingleSource(indexOfS, s, shortestPath, w);
+            Queue<String[]> q = new PriorityQueue<>(logicalSize, new Comparator<String[]>() {
                 @Override
-                public int compare(Double[] weight1, Double[] weight2) {
-                    return weight1[1].compareTo(weight2[1]);
+                public int compare(String[] weight1, String[] weight2) {
+                    return Integer.compare(weight1[1].length(), weight2[1].length());
                 }
             });
+
             for (int i = 0; i < logicalSize; i++) {
                 if (indexOfS != i)
-                    q.add(new Double[]{(double) i, w[indexOfS][i]});
+                    for (int j = 0; j < w[indexOfS][i].size(); j++)
+                        //Solo se estan agregando los que estan conectados a 's'.
+                        // Segundo parametro: Ultima palabra usada para llegar a el.
+                        // Tercer parametro: Distancia hasta el.
+                        q.add(new String[]{String.valueOf(i), w[indexOfS][i].get(j),
+                                String.valueOf(w[indexOfS][i].get(j).length())});
             }
 
+//            for (int i = 0; i < logicalSize; i++) {
+//                for (int j = 0; j < logicalSize; j++) {
+//                    System.out.print(w[i][j].size() + ", ");
+
+//                    if (!w[i][j].isEmpty()) {
+//                        System.out.print(w[i][j].get(0)+", ");
+//
+//                    }else{
+//                        System.out.print(0+", ");
+//                    }
+//                }
+//                System.out.println();
+//            }
+//            for (int i = 0; i < logicalSize; i++) {
+//                System.out.println(shortestPath[i][0]);
+//            }
             while (!q.isEmpty()) {
-                Double[] u = q.poll();//extract-Min
-                if (u[1] < 0)
-                    throw new WrongEdgeTypeException("Graph contains a negative edge");
-                int indexOfU = u[0].intValue();
+                String[] u = q.poll();//extract-Min
+                int indexOfU = Integer.parseInt(u[0]);
                 for (int v = 0; v < logicalSize; v++)
-                    if (w[indexOfU][v] < Double.MAX_VALUE)//u shares and edge with v
+                    if (w[indexOfU][v].size() != 0) {//Only vertices with which 'u' shares an edge.
+//                         && indexOfU != v && indexOfU != indexOfS
+//                        System.out.println(indexOfU == 4 && v ==2);
                         relax(shortestPath, q, u, v, w);
+                    }
             }
+//            System.out.println("---------");
+//            for (int i = 0; i < logicalSize; i++) {
+//                System.out.println(shortestPath[i][1]+",");
+//            }
             return shortestPath;
         }
 
@@ -503,17 +436,20 @@ public class Babel {
          * @param indexOfS     index used by the graph of the source node
          * @param shortestPath matrix which is to be returned by Dijkstra
          * @param w            weight matrix of the graph
-         * @throws WrongEdgeTypeException if a negative edge is found
          */
-        private void initializeSingleSource(int indexOfS, double[][] shortestPath, double[][] w) throws WrongEdgeTypeException {
+        private void initializeSingleSource(int indexOfS, String wordOfS, String[][] shortestPath, LinkedList<String>[][] w) {
             for (int i = 0; i < shortestPath.length; i++) {
-                if (w[indexOfS][i] < 0.0)
-                    throw new WrongEdgeTypeException("Graph contains a negative edge");
-                shortestPath[i][0] = w[indexOfS][i];
-                shortestPath[i][1] = indexOfS;
+                LinkedList<String> currentLinkedList = w[indexOfS][i];
+                String minimum = currentLinkedList.isEmpty() ? "" : currentLinkedList.get(0);
+                for (String s : currentLinkedList) {
+                    if (s.length() < minimum.length())
+                        minimum = s;
+                }
+                shortestPath[i][0] = minimum.length() > 0 ? String.valueOf(minimum.length()) : "";
+                shortestPath[i][1] = minimum.length() > 0 ? minimum : "";
             }
-            shortestPath[indexOfS][0] = 0.0;//Distance from s to s.
-            shortestPath[indexOfS][1] = indexOfS;//Predecessor of s.
+            shortestPath[indexOfS][0] = "";//Distance from s to s.
+            shortestPath[indexOfS][1] = "";//Distance from s to s. TODO: Puede haber problemas con esto.
         }
 
         /**
@@ -526,16 +462,35 @@ public class Babel {
          * @param indexOfV     index of the vertex whose distance is to be compared
          * @param w            weight matrix of the graph
          */
-        private void relax(double[][] shortestPath, Queue<Double[]> q, Double[] u, int indexOfV, double[][] w) {//Pre: s and index exist in the graph.
-            int indexOfU = u[0].intValue();
-            double suDistance = shortestPath[indexOfU][0];
-            double uvDistance = w[indexOfU][indexOfV];
-            double svDistance = shortestPath[indexOfV][0];
-            if (suDistance < Double.MAX_VALUE && uvDistance < Double.MAX_VALUE) {
-                if (suDistance + uvDistance < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
-                    shortestPath[indexOfV][0] = suDistance + uvDistance;
-                    shortestPath[indexOfV][1] = indexOfU;
-                    q.add(new Double[]{(double) indexOfV, shortestPath[indexOfV][0]});
+        private void relax(String[][] shortestPath, Queue<String[]> q, String[] u, int indexOfV, LinkedList<String>[][] w) {//Pre: s and index exist in the graph.
+            int indexOfU = Integer.parseInt(u[0]);
+//            System.out.println(Integer.parseInt(shortestPath[indexOfU][0])==Integer.parseInt(u[1]));
+            String previousWord = shortestPath[indexOfU][1];
+            String previousLetter = previousWord.length() > 0 ? String.valueOf(previousWord.charAt(0)) : "";
+
+            int suDistance = Integer.parseInt(u[2]);
+            String uvDistance = null;
+            int svDistance = shortestPath[indexOfV][0].length() > 0 ? Integer.parseInt(shortestPath[indexOfV][0]) : Integer.MAX_VALUE;
+
+            for (String edgeUV : w[indexOfU][indexOfV]) {
+//                System.out.println(previousLetter+", "+edgeUV);
+                boolean areSameLetter = String.valueOf(edgeUV.charAt(0)).equals(previousLetter);
+                if (uvDistance == null && !areSameLetter)
+                    uvDistance = edgeUV;
+                else if (uvDistance != null && !areSameLetter && edgeUV.length() < uvDistance.length())
+                    uvDistance = edgeUV;
+            }
+
+            if (indexOfU == indexOfV)
+                uvDistance = "";
+            if (uvDistance != null) {
+//                System.out.println("next vertices: " + indexOfU + ", " + indexOfV);
+//                System.out.println(suDistance + ", " + uvDistance.length() + ", sv: " + svDistance);
+                if (suDistance + uvDistance.length() < svDistance) {//Distance from s to index + distance from index to v < distance from s to v.
+//                    System.out.println(suDistance + uvDistance.length());
+                    shortestPath[indexOfV][0] = String.valueOf(suDistance + uvDistance.length());
+                    shortestPath[indexOfV][1] = uvDistance;
+                    q.add(new String[]{String.valueOf(indexOfV), uvDistance, shortestPath[indexOfV][0]});
                 }
             }
         }
@@ -556,91 +511,10 @@ public class Babel {
         }
     }
 
-    private static class Graph {
-        /**
-         * Vertices already added in the graph
-         */
-        private List<String> vertices;
-        /**
-         * Weight between vertices in the graph. -1 (or INFINITY) means not connected. 1 means already connected.
-         */
-        private int[][] weightMatrix;
-
-        /**
-         * Representative value to be used when two vertices in the graph are not connected.
-         */
-        final static int INFINITY = -1;
-
-        /**
-         * Creates a new Graph represented in a weight matrix. The input String is the number of vertices this graph has.
-         */
-        Graph(String size) {
-            int s = Integer.parseInt(size.split(" ")[0]);
-            weightMatrix = new int[s][s];
-            for (int i = 0; i < weightMatrix.length; i++)
-                for (int j = 0; j < weightMatrix[0].length; j++)
-                    weightMatrix[i][j] = INFINITY;
-            vertices = new ArrayList<>();
-        }
-
-        /**
-         * Connects vertex u with vertex v by assigning their weight to 1.
-         *
-         * @param u The first of the vertex pair to be added.
-         * @param v The second of the vertex pair to be added.
-         */
-        void addEdge(String u, String v) {
-            if (!vertices.contains(u)) {
-                vertices.add(u);
-            }
-            if (!vertices.contains(v)) {
-                vertices.add(v);
-            }
-            //Connect both vertexes by assigning their weight in the matrix to 1.
-            weightMatrix[vertices.indexOf(u)][vertices.indexOf(v)] = 1;
-        }
-
-        /**
-         * This method solves the main problem by using the Floyd-Warshall algorithm over the adjacency matrix of this graph.
-         *
-         * @return An adjacency matrix with the weight of the shortest path between all of the people in the graph.
-         */
-        int[][] solve() {
-            int[][] d = weightMatrix;
-            int n = vertices.size();
-            for (int k = 0; k < n; k++) {
-                int[][] dk = new int[n][n];
-                for (int j = 0; j < n; j++)
-                    for (int i = 0; i < n; i++)
-                        if (d[i][k] != INFINITY || d[k][j] != INFINITY)
-                            dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
-                        else
-                            dk[i][j] = d[i][j];
-                d = dk;
-            }
-            return d;
-        }
-
-        String returnSolution() {
-            int[][] matrix = solve();
-            int max = 0;
-            for (int[] ints : matrix) {
-                for (int j = 0; j < matrix.length; j++) {
-                    if (ints[j] != INFINITY) {
-                        if (max < ints[j])
-                            max = ints[j];
-                    } else
-                        return ": DISCONNECTED";
-                }
-            }
-            return ": " + max;
-        }
-    }
-
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class ElementNotFoundException extends Exception {
+    static class ElementNotFoundException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
@@ -655,7 +529,7 @@ public class Babel {
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class ElementAlreadyPresentException extends Exception {
+    static class ElementAlreadyPresentException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
@@ -670,7 +544,7 @@ public class Babel {
     /**
      * Custom exception to be thrown when a vertex or edge is not found in the graph.
      */
-    public static class WrongEdgeTypeException extends Exception {
+    static class WrongEdgeTypeException extends Exception {
 
         /**
          * Constructor that replaces the message shown by the super class by the one provided.
