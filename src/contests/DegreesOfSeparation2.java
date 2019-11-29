@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Class meant to be used in the virtual judge for the UVa 1056 - Degrees of Separation
  */
-class DegreesOfSeparation {
+class DegreesOfSeparation2 {
 //    private static BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException, ElementAlreadyPresentException, WrongEdgeTypeException, ElementNotFoundException, WrongGraphTypeException {

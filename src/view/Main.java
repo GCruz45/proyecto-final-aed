@@ -1,20 +1,23 @@
 package view;
 
+import javafx.application.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.*;
+import javafx.stage.Stage;
 
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
+import java.io.IOException;
 
-public class Main {
+public class Main extends Application{
 
-    public static void main(String[] args) {
-        Graph graph = new SingleGraph("Example 1");
-        graph.addNode("A" );
-        graph.addNode("B" );
-        graph.addNode("C" );
-        graph.addEdge("AB", "A", "B");
-        graph.addEdge("BC", "B", "C");
-        graph.addEdge("CA", "C", "A");
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Contest Problem Solver");
+        stage.setScene(scene);
+        stage.show();
+    }
 
-        graph.display();
+    public static void main(String[] args){
+        launch(args);
     }
 }
