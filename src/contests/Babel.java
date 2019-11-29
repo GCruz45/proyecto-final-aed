@@ -47,12 +47,12 @@ public class Babel {
                 if (graph.areConnected(lang1, lang2)) {
                     int index1 = graph.getIndex(lang1);
                     int index2 = graph.getIndex(lang2);
-                    if (edge < graph.weightMatrix()[index1][index2]) {
+                    /*if (edge < graph.weightMatrix()[index1][index2]) {
                         graph.removeEdge(lang1, lang2);
                         graph.addEdge(lang1, lang2, edge);
-                    }
-                } else
-                    graph.addEdge(lang1, lang2, edge);
+                    }*/
+                } else{}
+                   // graph.addEdge(lang1, lang2, edge);
             }
             solution = algorithms.dijkstra(graph, startLang);
             if (solution[graph.getIndex(endLang)][0] != Double.MAX_VALUE)

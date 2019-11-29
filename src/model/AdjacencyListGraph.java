@@ -40,6 +40,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     private Map<V, List<Map<V, Double>>> edges;
 
     /**
+     * The edges in this graph.
+     */
+    private ArrayList<Edge> edgesArray = new ArrayList<>();
+
+    /**
      * Basic constructor that is initialized with default values.
      */
     public AdjacencyListGraph() {
@@ -138,6 +143,8 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
+        Edge e = new Edge(indexU, indexV);
+        edgesArray.add(e);
         return true;
     }
 
@@ -174,7 +181,8 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
-        return true;
+        Edge e = new Edge(indexU, indexV, w);
+        edgesArray.add(e);return true;
     }
 
     /**
@@ -377,6 +385,11 @@ public class AdjacencyListGraph<V> implements IGraph<V> {
     @Override
     public Map<V, Integer> getVertices() {
         return vertices;
+    }
+
+    @Override
+    public List<Edge> getEdgesArray(){
+        return edgesArray;
     }
 
     /**

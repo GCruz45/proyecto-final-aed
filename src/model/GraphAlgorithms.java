@@ -94,7 +94,7 @@ public class GraphAlgorithms {
      * @throws ElementNotFoundException if 's' does not belong to the graph
      * @throws WrongEdgeTypeException   if a negative edge is found
      */
-    public <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
+    public static <V> double[][] dijkstra(IGraph<V> g, V s) throws ElementNotFoundException, WrongEdgeTypeException {
         double[][] w = g.weightMatrix();
         int logicalSize = g.getVertexSize();
         double[][] shortestPath = new double[logicalSize][2];
@@ -180,7 +180,7 @@ public class GraphAlgorithms {
      * minimum distance required to traverse the graph from vertex 'i' to vertex 'j'
      * @throws WrongGraphTypeException if the given graph is unweighted
      */
-    public <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
+    public static <V> double[][] floydWarshall(IGraph<V> g) throws WrongGraphTypeException {
         if (!g.isWeighted()) {
             throw new WrongGraphTypeException("Expected weighted graph");
         }

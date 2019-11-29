@@ -4,6 +4,7 @@ import exceptions.ElementAlreadyPresentException;
 import exceptions.ElementNotFoundException;
 import exceptions.WrongEdgeTypeException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -118,6 +119,12 @@ public interface IGraph<V> {
      * @return said Map
      */
     Map<V, Integer> getVertices();
+
+    /**
+     * Returns an ArrayList listing all of the vertices in this graph.
+     * @return Said ArrayList
+     */
+    List<Edge> getEdgesArray();
 
     /**
      * Gives a Map that pairs the starting vertex with a List of maps that represent all vertices

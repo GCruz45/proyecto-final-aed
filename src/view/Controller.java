@@ -1,10 +1,11 @@
 package view;
+import exceptions.ElementAlreadyPresentException;
+import exceptions.ElementNotFoundException;
+import exceptions.WrongEdgeTypeException;
+import exceptions.WrongGraphTypeException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import model.ProblemSolver;
 
@@ -28,6 +29,12 @@ public class Controller {
     @FXML
     private Button solveButton;
 
+    @FXML
+    private Button nextTCButton;
+
+    @FXML
+    private Button prevTCButton;
+
 
     /**This determines whether or not the problem is the designated as the Degrees of Separation problem.*/
     private boolean dOP;
@@ -42,23 +49,24 @@ public class Controller {
 
     @FXML
     void enableOption(ActionEvent e){
-        rdInputCB.setDisable(false);
+        Alert n = new Alert(Alert.AlertType.INFORMATION);
+        n.setTitle("Not implemented yet");
+        n.setContentText("Random input hasn't been yet implemented. Will be in future updates.\n" +
+                "We deeply thank your patience :D");
+        n.showAndWait();
+        rdInputCB.setSelected(false);
+    }
+
+    @FXML
+    void enableIO(ActionEvent e){
         if(selectProblemCB.getValue().equals("Degrees of Separation")){
             dOP = true;
         }else if(selectProblemCB.getValue().equals("Babel")){
             dOP = false;
         }
         model.setDOP(dOP);
-    }
-
-    @FXML
-    void enableOptions(ActionEvent e){
-        if(rdInputCB.isSelected()){
-            //TODO generate random input
-            inputTA.setDisable(true);
-        }else{
-            inputTA.setDisable(false);
-        }
+        rdInputCB.setDisable(false);
+        inputTA.setDisable(false);
         outputTA.setDisable(false);
         solveButton.setDisable(false);
     }
@@ -66,9 +74,26 @@ public class Controller {
     @FXML
     void solveProblem(ActionEvent e){
         String input = inputTA.getText();
-        model.readInput(input);
-        //TODO Transalte input to actual program and display solution display.
+        try {
+            outputTA.setText(model.readInput(input));
+        } catch (Exception ex){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("You gave an input for an incorrect problem");
+            ex.printStackTrace();
+            a.showAndWait();
+        }
+        //TODO Translate input to actual program and display solution display.
     }
 
+    @FXML
+    void prevTC(ActionEvent e){
+
+    }
+
+    @FXML
+    void nextTC(ActionEvent e){
+
+    }
 
 }

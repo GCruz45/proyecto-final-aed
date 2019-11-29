@@ -69,6 +69,9 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
      */
     private NavigableSet<Integer> emptySlots;
 
+    /**A list with the edges in this graph.*/
+    private ArrayList<Edge> edgesArray = new ArrayList<>();
+
     /**
      * Constructs a new, empty matrix of double values of default length, along with two Map objects that interconnect
      * vertices to their indices in the matrix and indices in the matrix to their vertices.
@@ -219,6 +222,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
+        Edge e = new Edge(x, y);
+        edgesArray.add(e);
         return true;
     }
 
@@ -258,6 +263,8 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
             else
                 throw new ElementNotFoundException("Second element not found in graph");
         }
+        Edge e = new Edge(x, y);
+        edgesArray.add(e);
         return true;
     }
 
@@ -435,6 +442,11 @@ public class AdjacencyMatrixGraph<V> implements IGraph<V> {
     @Override
     public Map<V, Integer> getVertices() {
         return verticesIndices;
+    }
+
+    @Override
+    public List<Edge> getEdgesArray() {
+        return edgesArray;
     }
 
     /**
