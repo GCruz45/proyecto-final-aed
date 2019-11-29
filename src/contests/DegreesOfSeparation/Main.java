@@ -34,7 +34,7 @@ public class Main {
         private int[][] weightMatrix;
 
         /**Representative value to be used when two vertices in the graph are not connected.*/
-        final static int INFINITY = 0;
+        final static int INFINITY = Integer.MAX_VALUE;
 
         /**Creates a new Graph represented in a weight matrix. The input String is the number of vertices this graph has.*/
         Graph(String size){
@@ -54,9 +54,11 @@ public class Main {
         void addEdge(String u, String v){
             if(!vertices.contains(u)){
                 vertices.add(u);
+                weightMatrix[vertices.indexOf(u)][vertices.indexOf(u)] = 0;
             }
             if(!vertices.contains(v)) {
                 vertices.add(v);
+                weightMatrix[vertices.indexOf(v)][vertices.indexOf(v)] = 0;
             }
             //Connect both vertexes by assigning their weight in the matrix to 1.
             weightMatrix[vertices.indexOf(u)][vertices.indexOf(v)] = 1;
@@ -74,10 +76,11 @@ public class Main {
                 int[][] dk = new int[n][n];
                 for (int j = 0; j < n; j++)
                     for (int i = 0; i < n; i++)
-                        if (d[i][k] != INFINITY || d[k][j] != INFINITY)
-                            dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
-                        else
-                            dk[i][j] = d[i][j];
+                        if(i!=j)
+                            if (d[i][k] != INFINITY || d[k][j] != INFINITY)
+                                dk[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
+                            else
+                                dk[i][j] = d[i][j];
                 d = dk;
             }
             return d;
